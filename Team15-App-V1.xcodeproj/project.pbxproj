@@ -11,8 +11,6 @@
 		937A18AB2916DD2100A1DACC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18AA2916DD2100A1DACC /* ContentView.swift */; };
 		937A18AD2916DD2200A1DACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937A18AC2916DD2200A1DACC /* Assets.xcassets */; };
 		937A18B02916DD2200A1DACC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937A18AF2916DD2200A1DACC /* Preview Assets.xcassets */; };
-		937A18BC2917192E00A1DACC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18BB2917192E00A1DACC /* SignUpViewController.swift */; };
-		937A18BE2917193C00A1DACC /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18BD2917193C00A1DACC /* LogInViewController.swift */; };
 		937A18C029171BAF00A1DACC /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18BF29171BAF00A1DACC /* BottomBar.swift */; };
 		937A18C229171BBB00A1DACC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18C129171BBB00A1DACC /* HomeView.swift */; };
 		937A18C429171BCD00A1DACC /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18C329171BCD00A1DACC /* NewsView.swift */; };
@@ -38,8 +36,6 @@
 		937A18AA2916DD2100A1DACC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		937A18AC2916DD2200A1DACC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		937A18AF2916DD2200A1DACC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		937A18BB2917192E00A1DACC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		937A18BD2917193C00A1DACC /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		937A18BF29171BAF00A1DACC /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		937A18C129171BBB00A1DACC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		937A18C329171BCD00A1DACC /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
@@ -98,8 +94,6 @@
 				937A18A82916DD2100A1DACC /* Team15_App_V1App.swift */,
 				937A18AC2916DD2200A1DACC /* Assets.xcassets */,
 				937A18AE2916DD2200A1DACC /* Preview Content */,
-				937A18BB2917192E00A1DACC /* SignUpViewController.swift */,
-				937A18BD2917193C00A1DACC /* LogInViewController.swift */,
 			);
 			path = "Team15-App-V1";
 			sourceTree = "<group>";
@@ -251,12 +245,10 @@
 				937A18C629171BDC00A1DACC /* ProfileView.swift in Sources */,
 				937A18CF2917267500A1DACC /* SignUp.swift in Sources */,
 				937A18C829171BE700A1DACC /* SearchView.swift in Sources */,
-				937A18BE2917193C00A1DACC /* LogInViewController.swift in Sources */,
 				937A18CC291721E400A1DACC /* Landing.swift in Sources */,
 				937A18C029171BAF00A1DACC /* BottomBar.swift in Sources */,
 				937A18D329172E0900A1DACC /* User.swift in Sources */,
 				937A18E029173D9100A1DACC /* LogInController.swift in Sources */,
-				937A18BC2917192E00A1DACC /* SignUpViewController.swift in Sources */,
 				937A18C429171BCD00A1DACC /* NewsView.swift in Sources */,
 				937A18C229171BBB00A1DACC /* HomeView.swift in Sources */,
 				937A18E229173DA100A1DACC /* SignUpController.swift in Sources */,

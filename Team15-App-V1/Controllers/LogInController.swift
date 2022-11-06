@@ -45,17 +45,4 @@ class LogInController: ObservableObject{
     }
   }
   
-//  func transitionToHome() {
-////    let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? homeViewController
-////
-////    view.window?.rootViewController = homeViewController
-////    view.window?.makeKeyAndVisible()
-//
-////    let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-////    let vc = storyboard.instantiateViewController(withIdentifier: "myVCID")
-////    self.present(vc, animated: true)
-//    let secondViewController = ViewController(nibNameOrNil: NibName, bundleOrNil: nil)
-//    self.presentViewController(secondViewController, animated: true, completion: nil)
-//  }
-  
 }
