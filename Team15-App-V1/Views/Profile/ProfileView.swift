@@ -7,73 +7,59 @@
 
 import SwiftUI
 
-
 struct ProfileView: View {
-    var body: some View {
-        VStack {
-          Text("Preferences")
-          NavigationView {
-            ProfileSettings()
-            AccountPreferences()
-//            Spacer()
-          }
-        }
-        .padding()
+
+  var body: some View {
+    NavigationView {
+      List {
+        Section(header: Text("Profile Settings")) {
+          NavigationLink(
+            destination: AccountInformationView(),
+            label: {
+              Text("Account Information")
+                .fontWeight(.bold)
+                .font(.body)
+            })
+          NavigationLink(
+            destination: PrivacyView(),
+            label: {
+              Text("Privacy Terms")
+                .fontWeight(.bold)
+                .font(.body)
+            })
+          NavigationLink(
+            destination: NotificationsView(),
+            label: {
+              Text("Notifications")
+                .fontWeight(.bold)
+                .font(.body)
+            })
+          //        Button(action: logout) {
+          //            Text("Logout")
+          //        }
+        }.headerProminence(.increased)
+        Section(header: Text("Account Preferences")) {
+          NavigationLink(
+            destination: InterestsView(),
+            label: {
+              Text("Interests & Preferences")
+                .fontWeight(.bold)
+                .font(.body)
+            })
+          NavigationLink(
+            destination: FollowingView(),
+            label: {
+              Text("Following")
+                .fontWeight(.bold)
+                .font(.body)
+            })
+        }.headerProminence(.increased)
+      }.navigationTitle("Preferences")
     }
+  }
+  
 }
 
-struct ProfileSettings: View {
-    var body: some View {
-      Text("Profile Settings")
-      NavigationLink(
-        destination: AccountInformationView(),
-        label: {
-          Text("Account Information")
-            .fontWeight(.bold)
-            .font(.body)
-        })
-      NavigationLink(
-        destination: PrivacyView(),
-        label: {
-          Text("Privacy Terms")
-            .fontWeight(.bold)
-            .font(.body)
-        })
-      NavigationLink(
-        destination: NotificationsView(),
-        label: {
-          Text("Notifications")
-            .fontWeight(.bold)
-            .font(.body)
-        })
-//      NavigationLink(
-//        destination: FollowingView(),
-//        label: {
-//          Text("Following")
-//            .fontWeight(.bold)
-//            .font(.body)
-//        })
-    }
-}
-struct AccountPreferences: View {
-    var body: some View {
-      Text("Account Preferences")
-        NavigationLink(
-          destination: InterestsView(),
-          label: {
-            Text("Interests & Preferences")
-              .fontWeight(.bold)
-              .font(.body)
-          })
-        NavigationLink(
-          destination: FollowingView(),
-          label: {
-            Text("Following")
-              .fontWeight(.bold)
-              .font(.body)
-          })
-      }
-}
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
