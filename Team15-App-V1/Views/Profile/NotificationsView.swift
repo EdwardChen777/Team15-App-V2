@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct NotificationsView: View {
+    @State private var notificationsOn = true //doesnt do anything
+  
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      VStack {
+        Toggle("Turn on Notifications", isOn: $notificationsOn)
+      }
+      .toggleStyle(.switch)
     }
 }
 
