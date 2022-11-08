@@ -8,24 +8,28 @@
 import SwiftUI
 
 struct HomeGalleryView: View {
+  @EnvironmentObject var updates: Updates
   var body: some View {
     ScrollView {
-//      LazyVGrid(
-//        columns: Array(
-//          repeating: .init(.adaptive(minimum: 100), spacing: 1),
-//          count: 2
-//        ),
-//        spacing: 1
-//      ) {
+      LazyVGrid(
+        columns: Array(
+          repeating: .init(.adaptive(minimum: 100), spacing: 1),
+          count: 2
+        ),
+        spacing: 1
+      ) {
 //        ForEach(Updates.results, id: \.self) { asset in
 //
 //          Button {
 //            // TODO: Add tapping action here
 //          } label: {
-//            UpdatesDeatilView(assetLocalId: asset.localIdentifier)
+//            UpdatesDetailView(assetLocalId: asset.localIdentifier)
 //          }
 //        }
-//      }
+        ForEach(updates.transactions) { transaction in
+          UpdatesRowView(transactions: transaction)
+        }
+      }
     }
   }
 }
