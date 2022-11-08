@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BottomBar: View {
+  var updates = Updates()
   @EnvironmentObject var signUpController: SignUpController
   var body: some View {
       TabView {
@@ -32,6 +33,7 @@ struct BottomBar: View {
             Image(systemName: "person")
           }
       }.accentColor(.black)
+      .environmentObject(updates)
   }
 }
 
