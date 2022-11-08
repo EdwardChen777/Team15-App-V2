@@ -10,7 +10,7 @@ import SwiftUI
 struct Landing: View {
   var body: some View {
     NavigationView {
-      VStack {
+      VStack { 
         Text("Welcome to Team 15 Project")
         Spacer()
         NavigationLink(destination: SignUp()) {
