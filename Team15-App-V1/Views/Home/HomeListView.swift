@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct HomeListView: View {
+  @EnvironmentObject var updates: Updates
     var body: some View {
-      ScrollView {
-        List {
-          
+      NavigationView {
+        List{
+          ForEach(updates.transactions) { transaction in
+            UpdatesRowView(transactions: transaction)
+          }
+//          .onDelete(perform: removeRows)
         }
       }
       
