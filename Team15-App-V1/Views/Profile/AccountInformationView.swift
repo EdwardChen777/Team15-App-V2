@@ -11,25 +11,27 @@ import Firebase
 import FirebaseCore
 
 struct AccountInformationView: View {
-  let userInfo = Auth.auth().currentUser
+  let userProfile = Profile(user_id: Auth.auth().currentUser!.uid)
   
     var body: some View {
       VStack {
+        Text("Account Information").font(.title)
         List {
           HStack{
             Text("Name:")
             Spacer()
 //            Text(userInfo?.name ?? "John Smith").foregroundColor(.gray)
+            Text(userProfile.getName()).foregroundColor(.gray)
           }
           HStack{
             Text("Email:")
             Spacer()
-            Text(userInfo?.email ?? "No email").foregroundColor(.gray)
+            Text(userProfile.getEmail()).foregroundColor(.gray)
           }
           HStack{
             Text("Phone Number:")
             Spacer()
-//            Text(userInfo?.number ?? "999-999-9999".foregroundColor(.gray)
+            Text(userProfile.getPhone()).foregroundColor(.gray)
           }
         }
       }

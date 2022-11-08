@@ -11,6 +11,7 @@ struct NotificationsView: View {
     @State private var notificationsOn = true //doesnt do anything
   
     var body: some View {
+      Text("Notifications").font(.title)
       VStack {
         Toggle("Turn on Notifications", isOn: $notificationsOn)
       }

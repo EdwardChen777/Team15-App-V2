@@ -54,7 +54,7 @@ struct ProfileView: View {
                 .font(.body)
             })
         }.headerProminence(.increased)
-      }.navigationTitle("Preferences")
+      }.navigationBarTitle("Preferences")
     }
   }
   
