@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93222677291A69BF00AD9343 /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93222676291A69BF00AD9343 /* Updates.swift */; };
+		9322267A291A6B8F00AD9343 /* UpdatesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93222679291A6B8F00AD9343 /* UpdatesRowView.swift */; };
+		9322267C291A6B9F00AD9343 /* UpdatesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322267B291A6B9F00AD9343 /* UpdatesDetailView.swift */; };
 		937A18A92916DD2100A1DACC /* Team15_App_V1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18A82916DD2100A1DACC /* Team15_App_V1App.swift */; };
 		937A18AB2916DD2100A1DACC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18AA2916DD2100A1DACC /* ContentView.swift */; };
 		937A18AD2916DD2200A1DACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937A18AC2916DD2200A1DACC /* Assets.xcassets */; };
@@ -37,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93222676291A69BF00AD9343 /* Updates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updates.swift; sourceTree = "<group>"; };
+		93222679291A6B8F00AD9343 /* UpdatesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesRowView.swift; sourceTree = "<group>"; };
+		9322267B291A6B9F00AD9343 /* UpdatesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesDetailView.swift; sourceTree = "<group>"; };
 		937A18A52916DD2100A1DACC /* Team15-App-V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Team15-App-V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937A18A82916DD2100A1DACC /* Team15_App_V1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team15_App_V1App.swift; sourceTree = "<group>"; };
 		937A18AA2916DD2100A1DACC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93222678291A6B7300AD9343 /* Updates */ = {
+			isa = PBXGroup;
+			children = (
+				937A18C929171BF500A1DACC /* UpdatesView.swift */,
+				93222679291A6B8F00AD9343 /* UpdatesRowView.swift */,
+				9322267B291A6B9F00AD9343 /* UpdatesDetailView.swift */,
+			);
+			path = Updates;
+			sourceTree = "<group>";
+		};
 		937A189C2916DD2100A1DACC = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +149,7 @@
 			children = (
 				937A18D229172E0900A1DACC /* User.swift */,
 				D46CFEED2919BBCE002F28CF /* Profile.swift */,
+				93222676291A69BF00AD9343 /* Updates.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,13 +157,13 @@
 		937A18B82916E03900A1DACC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93222678291A6B7300AD9343 /* Updates */,
 				D46CFEE229187660002F28CF /* Profile */,
 				937A18CD2917263900A1DACC /* SignUp-Login */,
 				937A18BF29171BAF00A1DACC /* BottomBar.swift */,
 				937A18C129171BBB00A1DACC /* HomeView.swift */,
 				937A18C329171BCD00A1DACC /* NewsView.swift */,
 				937A18C729171BE700A1DACC /* SearchView.swift */,
-				937A18C929171BF500A1DACC /* UpdatesView.swift */,
 				937A18AA2916DD2100A1DACC /* ContentView.swift */,
 			);
 			path = Views;
@@ -275,6 +292,7 @@
 				937A18CC291721E400A1DACC /* Landing.swift in Sources */,
 				937A18C029171BAF00A1DACC /* BottomBar.swift in Sources */,
 				D46CFEE42918778C002F28CF /* AccountInformationView.swift in Sources */,
+				9322267A291A6B8F00AD9343 /* UpdatesRowView.swift in Sources */,
 				937A18D329172E0900A1DACC /* User.swift in Sources */,
 				D46CFEE62918779E002F28CF /* PrivacyView.swift in Sources */,
 				937A18E029173D9100A1DACC /* LogInController.swift in Sources */,
@@ -284,10 +302,12 @@
 				937A18E229173DA100A1DACC /* SignUpController.swift in Sources */,
 				937A18AB2916DD2100A1DACC /* ContentView.swift in Sources */,
 				937A18A92916DD2100A1DACC /* Team15_App_V1App.swift in Sources */,
+				93222677291A69BF00AD9343 /* Updates.swift in Sources */,
 				D46CFEEA291877CA002F28CF /* InterestsView.swift in Sources */,
 				937A18CA29171BF500A1DACC /* UpdatesView.swift in Sources */,
 				937A18E42917482B00A1DACC /* ValidateController.swift in Sources */,
 				937A18D12917267F00A1DACC /* LogIn.swift in Sources */,
+				9322267C291A6B9F00AD9343 /* UpdatesDetailView.swift in Sources */,
 				D46CFEE8291877BB002F28CF /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
