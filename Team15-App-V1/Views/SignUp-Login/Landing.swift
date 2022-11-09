@@ -37,6 +37,7 @@ struct Landing: View {
             }
             .padding()
             .offset(y: 300)
+
         }
     }
   }
