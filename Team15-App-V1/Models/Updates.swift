@@ -10,6 +10,8 @@ import Foundation
 class Updates: ObservableObject {
 //  var temp: SECTransactions.transactions
   @Published var transactions: [updateData] = []
+  @Published var searchText : String = ""
+  @Published var filteredTransactions: [updateData] = []
   
   init() {
     let sec_api_key = "f57f12ef4f43516893e1be7e897aaba48770a14d48c1b683996eb9594a008656"
@@ -102,6 +104,12 @@ class Updates: ObservableObject {
       }
     }
     sec.resume()
+  }
+  
+  func search(searchText: String) {
+    self.filteredTransactions = self.transactions.filter { transaction in
+      return transaction.symbol.lowercased().contains(searchText.lowercased())
+    }
   }
 }
 
