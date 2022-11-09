@@ -14,40 +14,54 @@ struct SignUp: View {
     @State private var email: String = ""
 //    @State private var phone: String = ""
     @State private var password: String = ""
-  var body: some View {
-    
-    //      VStack{
-    //        TextField("Username",text: $firstname)
-    //        TextField("Username",text: $lastname)
-    //        TextField("Email",text: $email)
-    //        TextField("Password",text: $password)
-    //        Text("Hello, \(firstname)!")
-    //        if ValidateController.validSignUp(email, password) {
-    //
-    //        }
-    //        Button(action: {}) {
-    //          Text("Log In")
-    //            .padding(10.0)
-    //            .overlay(RoundedRectangle(cornerRadius: 10.0)
-    //            .stroke(lineWidth: 2.0))
-    //        }
-    //        .padding(.top,15)
-    //      }
-      Form {
-        Section {
-          TextField("First Name", text: $firstname)
-          TextField("Email", text: $email)
-          TextField("Password", text: $password)
-        }
+    var body: some View {
+            //Color.green
+            
+        LinearGradient(gradient: Gradient(colors: [Color.green, Color.white]),
+                       startPoint: .topLeading,
+                       endPoint: .bottomTrailing)
+        //.edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
+        //.overlay(
+             
+            
+            //      VStack{
+            //        TextField("Username",text: $firstname)
+            //        TextField("Username",text: $lastname)
+            //        TextField("Email",text: $email)
+            //        TextField("Password",text: $password)
+            //        Text("Hello, \(firstname)!")
+            //        if ValidateController.validSignUp(email, password) {
+            //
+            //        }
+            //        Button(action: {}) {
+            //          Text("Log In")
+            //            .padding(10.0)
+            //            .overlay(RoundedRectangle(cornerRadius: 10.0)
+            //            .stroke(lineWidth: 2.0))
+            //        }
+            //        .padding(.top,15)
+            //      }
+            //VStack {
+                
+                Form {
+                    Section {
+                        TextField("First Name", text: $firstname)
+                        TextField("Last Name", text: $lastname)
+                        TextField("Email", text: $email)
+                        TextField("Password", text: $password)
+                    }
+                    
+                    Section {
+                        Button(action: {signUpController.signup(email: email, password: password, firstname: email,lastname: password)}) {
+                            Text("Create Account")
+                        }
+                    }.disabled(firstname.isEmpty || email.isEmpty)
+                }
+                
+            //}
         
-        Section {
-          Button(action: {signUpController.signup(email: email, password: password, firstname: email,lastname: password)}) {
-              Text("Create Account")
-            }
-        }.disabled(firstname.isEmpty || email.isEmpty)
-      }
-      
-      
+        
     }
   
 }
