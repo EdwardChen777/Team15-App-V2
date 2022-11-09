@@ -16,7 +16,7 @@ struct UpdatesView: View {
             UpdatesRowView(transactions: transaction)
           }
 //          .onDelete(perform: removeRows)
-        }.navigationBarTitle("Library")
+        }.navigationBarTitle("Updates")
       }
     }
 }
