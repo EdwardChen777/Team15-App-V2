@@ -17,12 +17,7 @@ struct SignUp: View {
     var body: some View {
             //Color.green
             
-        LinearGradient(gradient: Gradient(colors: [Color.green, Color.white]),
-                       startPoint: .topLeading,
-                       endPoint: .bottomTrailing)
-        //.edgesIgnoringSafeArea(.all)
-        .ignoresSafeArea()
-        //.overlay(
+        
              
             
             //      VStack{
@@ -42,25 +37,86 @@ struct SignUp: View {
             //        }
             //        .padding(.top,15)
             //      }
-            //VStack {
+            ZStack {
                 
-                Form {
+                VStack {
+                    Section{
+                        Text("Sign Up")
+                    }
+                        .font(.largeTitle)
+                        .padding()
+                        
                     Section {
-                        TextField("First Name", text: $firstname)
-                        TextField("Last Name", text: $lastname)
-                        TextField("Email", text: $email)
-                        TextField("Password", text: $password)
+                        VStack(alignment: .leading) {
+                                    Text("First Name")
+                                        .font(.headline)
+                                    TextField("Enter First Name", text: $firstname)
+                                        .padding(.all)
+                                        .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                                        . cornerRadius(5.0)
+                                        
+                                }
+                                .padding(.horizontal, 15)
+                        VStack(alignment: .leading) {
+                                    Text("Last Name")
+                                        .font(.headline)
+                                    TextField("Enter Last Name", text: $lastname)
+                                        .padding(.all)
+                                        .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                                        . cornerRadius(5.0)
+                                        
+                                }
+                                .padding(.horizontal, 15)
+                        VStack(alignment: .leading) {
+                                    Text("Email")
+                                        .font(.headline)
+                                    TextField("Enter Email", text: $email)
+                                        .padding(.all)
+                                        .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                                        . cornerRadius(5.0)
+                                        
+                                }
+                                .padding(.horizontal, 15)
+                        VStack(alignment: .leading) {
+                                    Text("Password")
+                                        .font(.headline)
+                                    TextField("Enter a Password", text: $password)
+                                        .padding(.all)
+                                        .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                                        . cornerRadius(5.0)
+                                        
+                                }
+                                .padding(.horizontal, 15)
                     }
                     
                     Section {
                         Button(action: {signUpController.signup(email: email, password: password, firstname: email,lastname: password)}) {
-                            Text("Create Account")
-                        }
+                            HStack {
+                                            Spacer()
+                                            Text("Create Account")
+                                                .font(.headline)
+                                                .foregroundColor(Color.white)
+                                            Spacer()
+                                        }
+                                    }
+                                    .padding(.vertical, 10.0)
+                                    .background(Color.green)
+                                    .cornerRadius(10.0)
+                                    .padding(.horizontal, 50)
+                
                     }.disabled(firstname.isEmpty || email.isEmpty)
                 }
                 
-            //}
-        
+                
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.green, Color.white]),
+                                       startPoint: .topLeading,
+                                       endPoint: .bottomTrailing)
+                        //.edgesIgnoringSafeArea(.all)
+                        .ignoresSafeArea()
+                        //.overlay())
+                        )
         
     }
   
