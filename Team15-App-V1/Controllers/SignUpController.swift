@@ -11,9 +11,13 @@ import Firebase
 
 class SignUpController: ObservableObject{
   @Published var isloggedin: Bool
+  @Published var needOnboarding: Bool
+  @Published var isNewUser: Bool
   
-  init (isLoggedin: Bool) {
+  init (isLoggedin: Bool, needOnboarding: Bool, isNewUser: Bool) {
     self.isloggedin = isLoggedin
+    self.needOnboarding = needOnboarding
+    self.isNewUser = isNewUser
   }
   
   func signup(email: String, password: String, firstname: String, lastname: String) {
@@ -33,6 +37,7 @@ class SignUpController: ObservableObject{
         }
       }
     }
+    
   }
   
   func login(email: String, password: String) {
@@ -46,6 +51,11 @@ class SignUpController: ObservableObject{
         self.isloggedin = true
       }
     }
+    self.isNewUser = false
+  }
+  
+  func completeOnboarding() {
+    self.needOnboarding = false
   }
   
   
