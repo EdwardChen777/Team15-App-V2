@@ -36,6 +36,7 @@
 		937A18E42917482B00A1DACC /* ValidateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18E32917482B00A1DACC /* ValidateController.swift */; };
 		938E421829237FA300F4550B /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E421729237FA300F4550B /* Onboarding.swift */; };
 		938E421A29237FB900F4550B /* OnboardingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E421929237FB900F4550B /* OnboardingTab.swift */; };
+		93F849772934384F0097E63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F849762934384F0097E63A /* LaunchScreen.storyboard */; };
 		D46CFEE42918778C002F28CF /* AccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CFEE32918778C002F28CF /* AccountInformationView.swift */; };
 		D46CFEE62918779E002F28CF /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CFEE52918779E002F28CF /* PrivacyView.swift */; };
 		D46CFEE8291877BB002F28CF /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CFEE7291877BB002F28CF /* NotificationsView.swift */; };
@@ -74,6 +75,7 @@
 		937A18E32917482B00A1DACC /* ValidateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateController.swift; sourceTree = "<group>"; };
 		938E421729237FA300F4550B /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		938E421929237FB900F4550B /* OnboardingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTab.swift; sourceTree = "<group>"; };
+		93F849762934384F0097E63A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D46CFEE32918778C002F28CF /* AccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationView.swift; sourceTree = "<group>"; };
 		D46CFEE52918779E002F28CF /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		D46CFEE7291877BB002F28CF /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		937A18B82916E03900A1DACC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93F84975293438350097E63A /* Launch */,
 				938E421629237F3900F4550B /* Onboarding */,
 				D46CFEF32919F16F002F28CF /* Home */,
 				93222678291A6B7300AD9343 /* Updates */,
@@ -235,6 +238,14 @@
 				938E421929237FB900F4550B /* OnboardingTab.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		93F84975293438350097E63A /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				93F849762934384F0097E63A /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		D46CFEE229187660002F28CF /* Profile */ = {
@@ -328,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				937A18B02916DD2200A1DACC /* Preview Assets.xcassets in Resources */,
+				93F849772934384F0097E63A /* LaunchScreen.storyboard in Resources */,
 				937A18D52917332F00A1DACC /* GoogleService-Info.plist in Resources */,
 				937A18AD2916DD2200A1DACC /* Assets.xcassets in Resources */,
 			);
@@ -504,6 +516,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -533,6 +546,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
