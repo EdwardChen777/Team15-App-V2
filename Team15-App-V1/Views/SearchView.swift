@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
   @State var searchField: String = ""
-  @State var displayedTransactions = [updateData]()
+  @State var displayedTransactions = [Transaction]()
   @EnvironmentObject var updates: Updates
     var body: some View {
       let binding = Binding<String>(get: {
