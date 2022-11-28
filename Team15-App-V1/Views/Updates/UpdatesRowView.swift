@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct UpdatesRowView: View {
-  var transactions: updateData
+  var transactions: Transaction
     var body: some View {
       NavigationLink(
         destination: UpdatesDetailView(transactions: transactions),
         label: {
-          Text(transactions.filedAt)
-            .fontWeight(.bold)
-            .font(.body)
+          HStack{
+            VStack(alignment: .leading){
+              Text(transactions.issuer)
+                .fontWeight(.bold)
+                .font(.title3)
+              Text(transactions.symbol)
+                .font(.body)
+            }
+          }
+          
       })
     }
 }

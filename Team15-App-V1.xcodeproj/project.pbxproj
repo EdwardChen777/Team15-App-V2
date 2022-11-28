@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		930D7C2F2920DFDA00F32683 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930D7C2E2920DFDA00F32683 /* UserRepository.swift */; };
+		930E4E362931802900071F46 /* BackgroundUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E4E352931802900071F46 /* BackgroundUpdate.swift */; };
 		93222677291A69BF00AD9343 /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93222676291A69BF00AD9343 /* Updates.swift */; };
 		9322267A291A6B8F00AD9343 /* UpdatesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93222679291A6B8F00AD9343 /* UpdatesRowView.swift */; };
 		9322267C291A6B9F00AD9343 /* UpdatesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322267B291A6B9F00AD9343 /* UpdatesDetailView.swift */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		930D7C2E2920DFDA00F32683 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		930E4E3429317FD400071F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		930E4E352931802900071F46 /* BackgroundUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundUpdate.swift; sourceTree = "<group>"; };
 		93222676291A69BF00AD9343 /* Updates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updates.swift; sourceTree = "<group>"; };
 		93222679291A6B8F00AD9343 /* UpdatesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesRowView.swift; sourceTree = "<group>"; };
 		9322267B291A6B9F00AD9343 /* UpdatesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesDetailView.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		937A18A72916DD2100A1DACC /* Team15-App-V1 */ = {
 			isa = PBXGroup;
 			children = (
+				930E4E3429317FD400071F46 /* Info.plist */,
 				930D7C2D2920DFB900F32683 /* DataRepositories */,
 				937A18D42917332F00A1DACC /* GoogleService-Info.plist */,
 				937A18BA2916E05F00A1DACC /* Resources */,
@@ -179,6 +183,7 @@
 				937A18D229172E0900A1DACC /* User.swift */,
 				D46CFEED2919BBCE002F28CF /* Profile.swift */,
 				93222676291A69BF00AD9343 /* Updates.swift */,
+				930E4E352931802900071F46 /* BackgroundUpdate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				937A18D12917267F00A1DACC /* LogIn.swift in Sources */,
 				9322267C291A6B9F00AD9343 /* UpdatesDetailView.swift in Sources */,
 				D46CFEE8291877BB002F28CF /* NotificationsView.swift in Sources */,
+				930E4E362931802900071F46 /* BackgroundUpdate.swift in Sources */,
 				D46CFEFB2919F41D002F28CF /* HomeGalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +500,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Team15-App-V1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Team15-App-V1/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -522,6 +529,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Team15-App-V1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Team15-App-V1/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
