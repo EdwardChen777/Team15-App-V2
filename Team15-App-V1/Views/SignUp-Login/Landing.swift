@@ -11,26 +11,77 @@ struct Landing: View {
   var body: some View {
     NavigationView {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.green, .white]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
+            
             VStack {
+    /*
+                VStack{
+                    Rectangle()
+                        .fill(CustomColor.paleGreen)
+                        .frame(height: 250)
+                        .overlay(Text("Welcome").font(.largeTitle)).foregroundColor(Color.white)
+                }
+                .background(Color.green)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .ignoresSafeArea()
+                VStack{
+                    LabelledDivider(label: "Today's Trends")
+                }
+                HStack{
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(CustomColor.paleGreen)
+                        .frame(width: 110, height: 110)
+                        .overlay(Text("Transactions")).font(.system(size: 12))
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(CustomColor.paleGreen)
+                        .frame(width: 110, height: 110)
+                        .overlay(Text("Trade Volume")).font(.system(size: 12))
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(CustomColor.paleGreen)
+                        .frame(width: 110, height: 110)
+                        .overlay(Text("Hottest Stock")).font(.system(size: 12))
+                        
+                }
+                VStack{
+                    LabelledDivider(label: "Your Feed")
+                }
+     */
                 Text("Welcome to Team 15 Project")
                 Spacer()
                 NavigationLink(destination: SignUp()) {
+                    HStack {
+                                    Spacer()
+                                    Text("Sign Up")
+                                        .font(.headline)
+                                        .foregroundColor(Color.white)
+                                    Spacer()
+                                }
+                    .padding(.vertical, 10.0)
+                    .background(CustomColor.paleGreen)
+                    .cornerRadius(10.0)
+                    .padding(.horizontal, 50)
+                    /*
                     Text("Sign Up")
                         .foregroundColor(Color.white)
                         .padding(10.0)
                         .background(Color.green.cornerRadius(10.0))
+                     */
                         //.scaleEffect(isPressed ? 0.95 : 1)
                 }
                 
                 NavigationLink(destination: LogIn()) {
-                    Text("Log In")
-                        .foregroundColor(Color.white)
-                        .padding(10.0)
-                        .background(Color.green.cornerRadius(10.0))
+                    HStack {
+                                    Spacer()
+                                    Text("Log In")
+                                        .font(.headline)
+                                        .foregroundColor(Color.white)
+                                    Spacer()
+                                }
+                    .padding(.vertical, 10.0)
+                    .background(CustomColor.paleGreen)
+                    .cornerRadius(10.0)
+                    .padding(.horizontal, 50)
                 }
                 .padding(.top,15)
                 Spacer()
@@ -39,8 +90,41 @@ struct Landing: View {
             .offset(y: 300)
 
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(LinearGradient(gradient: Gradient(colors: [CustomColor.paleGreen, Color.white]),
+                                   startPoint: .topLeading,
+                                   endPoint: .bottomTrailing)
+                    //.edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
+                    //.overlay())
+                    )
     }
   }
+}
+
+struct LabelledDivider: View {
+
+    let label: String
+    let horizontalPadding: CGFloat
+    let color: Color
+
+    init(label: String, horizontalPadding: CGFloat = 15, color: Color = .gray) {
+        self.label = label
+        self.horizontalPadding = horizontalPadding
+        self.color = color
+    }
+
+    var body: some View {
+        HStack {
+            line
+            Text(label).foregroundColor(color).font(.system(size: 12))
+            line
+        }
+    }
+
+    var line: some View {
+        VStack { Divider().background(color) }.padding(horizontalPadding)
+    }
 }
 
 struct Landing_Previews: PreviewProvider {
