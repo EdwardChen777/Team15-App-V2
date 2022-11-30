@@ -1,7 +1,7 @@
 //
 //  SignUp.swift
 //  Team15-App-V1
-//
+//  M2
 //  Created by Edward Chen on 11/5/22.
 //
 
@@ -40,12 +40,16 @@ struct SignUp: View {
             ZStack {
                 
                 VStack {
+                    
+                    Spacer()
                     Section{
                         Text("Sign Up")
+                            .multilineTextAlignment(.leading)
                     }
                         .font(.largeTitle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
-                        
+                        //.bold()
                     Section {
                         VStack(alignment: .leading) {
                                     Text("First Name")
@@ -88,7 +92,7 @@ struct SignUp: View {
                                 }
                                 .padding(.horizontal, 15)
                     }
-                    
+                    Spacer()
                     Section {
                         Button(action: {signUpController.signup(email: email, password: password, firstname: email,lastname: password)}) {
                             HStack {
@@ -100,17 +104,18 @@ struct SignUp: View {
                                         }
                                     }
                                     .padding(.vertical, 10.0)
-                                    .background(Color.green)
+                                    .background(CustomColor.paleGreen)
                                     .cornerRadius(10.0)
                                     .padding(.horizontal, 50)
                 
                     }.disabled(firstname.isEmpty || email.isEmpty)
+                    Spacer()
                 }
                 
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.green, Color.white]),
+            .background(LinearGradient(gradient: Gradient(colors: [CustomColor.paleGreen, Color.white]),
                                        startPoint: .topLeading,
                                        endPoint: .bottomTrailing)
                         //.edgesIgnoringSafeArea(.all)
@@ -122,8 +127,16 @@ struct SignUp: View {
   
 }
 
+struct CustomColor {
+    static let paleGreen = Color("paleGreen")
+    static let transGreen = Color("transGreen")
+}
+
+
+
 struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
         SignUp()
     }
 }
+
