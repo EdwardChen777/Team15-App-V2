@@ -11,7 +11,8 @@ struct NewsRowView: View {
   var article: articleData
     var body: some View {
       NavigationLink(
-        destination: NewsDetailView(article: article),
+        destination: NewsDetailView(articleLink: article.link),
+//        destination: NewsDetailView(),
         label: {
           HStack{
             VStack(alignment: .leading){

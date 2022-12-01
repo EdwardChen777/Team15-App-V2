@@ -10,15 +10,24 @@ import Foundation
 import SwiftUI
 
 struct NewsDetailView: View {
-  var article: articleData
+  var articleLink: String
+  @ObservedObject var viewModel = WebViewModel()
+  
+  init(articleLink: String) {
+    self.articleLink = articleLink
+    viewModel.urlString = articleLink
+  }
+
   var body: some View {
     VStack {
-      Text(article.title).fontWeight(.bold)
-        .font(.title3)
-      Text(article.pubDate)
-      Text("Source: " + article.source)
-      Text(article.link)
+      WebView(viewModel: viewModel)
       Spacer()
+      WebBottomBar(viewModel: viewModel)
+    }
+    .sheet(isPresented: $viewModel.shouldShowShareSheet) {
+      if let url: URL = URL(string: "https://\(viewModel.urlString)") {
+        ShareSheet(activityItems: [url])
+      }
     }
   }
   
