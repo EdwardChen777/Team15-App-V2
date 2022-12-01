@@ -37,6 +37,8 @@ struct BottomBar: View {
       }.accentColor(.black)
       .environmentObject(updates)
       .environmentObject(news)
+      .toolbarBackground(CustomColor.paleGreen)
+
 //      .environmentObject(fetch)
   }
 }
