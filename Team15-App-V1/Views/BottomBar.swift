@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BottomBar: View {
   var updates = Updates()
+  var news = News()
 //  var fetch = ApiFetch()
   @EnvironmentObject var signUpController: SignUpController
   var body: some View {
@@ -35,7 +36,9 @@ struct BottomBar: View {
           }
       }.accentColor(.black)
       .environmentObject(updates)
+      .environmentObject(news)
       .toolbarBackground(CustomColor.paleGreen)
+
 //      .environmentObject(fetch)
   }
 }

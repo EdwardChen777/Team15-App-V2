@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct NewsView: View {
+  @EnvironmentObject var news: News
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("News")
-        }
-        .padding()
+      NavigationView {
+        List{
+          ForEach(news.articles) { article in
+            NewsRowView(article: article)
+          }
+//          .onDelete(perform: removeRows)
+        }.navigationBarTitle("News")
+      }
     }
 }
 
@@ -24,3 +26,4 @@ struct NewsView_Previews: PreviewProvider {
         NewsView()
     }
 }
+

@@ -61,9 +61,9 @@ struct HomeView: View {
 // Adapted off of https://developer.apple.com/forums/thread/652955
 func displayCorrectView(_ selectedOption: String) -> some View {
     switch selectedOption {
-    case "List":
-        return AnyView(HomeGalleryView())
     case "Gallery":
+        return AnyView(HomeGalleryView())
+    case "List":
         return AnyView(HomeListView())
     default:
       return AnyView(HomeListView())
