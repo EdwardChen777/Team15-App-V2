@@ -35,8 +35,11 @@ class News: ObservableObject {
 //        }
       
       do {
-        let news_list = try JSONDecoder().decode([articleData].self, from: data)
-          self.articles = news_list
+          let news_list = try JSONDecoder().decode([articleData].self, from: data)
+//          self.articles = news_list
+          for item in news_list {
+            self.articles.append(articleData(id: item.id, link: item.link, pubDate: self.editDate(date: item.pubDate), source: item.source, title: item.title))
+          }
         }
         catch {
           print("\(error)")
@@ -48,6 +51,14 @@ class News: ObservableObject {
     yahoo_news.resume()
     
   }
+  
+  func editDate(date: String) -> String {
+    var formatted_date = date.prefix(10)
+//    let someDateTime = formatter.date(from: "2016/10/08 22:31")
+    return String(formatted_date)
+  }
+  
+  
 }
 
 struct articleData: Decodable, Identifiable {
