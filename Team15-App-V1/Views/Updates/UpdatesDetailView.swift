@@ -9,42 +9,123 @@ import Charts
 import SwiftUI
 
 struct UpdatesDetailView: View {
+  
   var transactions: Transaction
+  
+  // might need to initialize to transactions.nonDerivative
+  @State var type: [updateAmount] = []
+  
+//  init(_ transaction: [updateAmount]) {
+//    _type = State<[updateAmount]>(initialValue: transaction)
+//  }
+  
     var body: some View {
-      VStack(alignment: .leading){
-        Text(transactions.symbol)
-          .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
-          .fontWeight(.bold)
-          .font(.title)
-          .multilineTextAlignment(.leading)
-          .padding()
-        Text(transactions.ownerName)
-          .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
-        if let sth = transactions.nonDerivative.first {
-          Text(sth.action)
+      
+      let temp1 = transactions.nonDerivative.map{Int($0.pricePerShare) * Int($0.shares)}.reduce(0,+) + transactions.derivative.map{Int($0.pricePerShare) * Int($0.shares)}.reduce(0,+)
+//      let temp = transactions.derivative.map{Int($0.pricePerShare) * Int($0.shares)}
+      ScrollView{
+        VStack(alignment: .leading){
+          
+          Text(transactions.symbol)
+            .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
+            .font(.title)
+//            .multilineTextAlignment(.leading)
+          
+          Text("Last updated: \(transactions.filedAt)")
             .foregroundColor(Color.black)
+          // line
+          HStack{
+              RoundedRectangle(cornerRadius: 10)
+                  .fill(CustomColor.transGreen)
+                  .frame(width: 110, height: 110)
+                  .overlay(
+                    Group{
+                      VStack{
+                        Text("Transactions")
+                        let total = transactions.nonDerivative.count + transactions.derivative.count
+                        Text("\(total)")
+                      }
+                    }
+                  ).font(.system(size: 12))
+              Spacer()
+              RoundedRectangle(cornerRadius: 10)
+                  .fill(CustomColor.transGreen)
+                  .frame(width: 110, height: 110)
+                  .overlay(
+                    Group{
+                      VStack{
+                        Text("Trade Volume")
+                        Text("$\(temp1)")
+                      }
+                    }
+                  ).font(.system(size: 12))
+              Spacer()
+              RoundedRectangle(cornerRadius: 10)
+                  .fill(CustomColor.transGreen)
+                  .frame(width: 110, height: 110)
+                  .overlay(Text("Hottest Stock")).font(.system(size: 12))
+          }
+          
+          Text("Transaction owner: \(transactions.ownerName)")
+            .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
+        }
+
+        Picker("Transaction Type", selection: $type) {
+          Text("Non-Derivative").tag(transactions.nonDerivative)
+          Text("Derivative").tag(transactions.derivative)
+        }
+        .pickerStyle(.segmented)
+        GroupBox ("Non Derivative Transactions") {
+          Chart(type) { element in
+            if element.pricePerShare > 0 {
+              BarMark (
+                x: .value("Name",element.pricePerShare),
+                y: .value("Total Value",element.shares)
+              )
+              .foregroundStyle(by: .value("Action",element.action))
+              .position(by: .value("Action",element.action))
+            }
+              
+          }
+          .chartYAxis {
+            AxisMarks(position: .leading)
+          }
+          .chartXAxisLabel("Price Per Share")
+          .chartYAxisLabel("Shares Involved")
+          .chartForegroundStyleScale([
+            "A": Color.green,
+            "D": Color.red
+          ])
+          .frame(height: 250)
         }
         
-
+//        GroupBox ("Derivative Transactions") {
+//          Chart(transactions.derivative) { element in
+//            if element.pricePerShare > 0 {
+//              BarMark (
+//                x: .value("Name",element.pricePerShare),
+//                y: .value("Total Value",element.shares)
+//              )
+//              .foregroundStyle(by: .value("Action",element.action))
+//              .position(by: .value("Action",element.action))
+//            }
 //
-//        Text("$\(transactions.pricePerShare) per share")
-//          .foregroundColor(Color.black)
-//          .multilineTextAlignment(.leading)
-//          .padding()
-//        Text("\(transactions.shares) shares")
-//          .foregroundColor(Color.gray)
-//          .padding()
-
-
+//          }.chartForegroundStyleScale([
+//            "A": Color.green,
+//            "D": Color.red
+//          ])
+//          .frame(height: 250)
+//        }
+        
+        
+        Spacer()
+        Spacer()
       }
-      Chart(transactions.nonDerivative) { element in
-          BarMark (
-            x: .value("Name",element.securityTitle),
-            y: .value("Total Value",element.shares * element.pricePerShare)
-          )
-      }
-      Spacer()
-      Spacer()
+      .padding()
+      
+      
+      
+      
     }
 }
 

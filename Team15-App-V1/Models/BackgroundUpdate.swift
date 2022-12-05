@@ -159,7 +159,7 @@ class ApiFetch: ObservableObject {
 
 
 // define the class for each sub-transaction 
-struct updateAmount: Identifiable {
+struct updateAmount: Identifiable, Hashable {
   let securityTitle: String
   let transactionDate: String
   let shares: Float
