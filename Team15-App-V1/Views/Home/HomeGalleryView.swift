@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeGalleryView: View {
   @EnvironmentObject var updates: Updates
+  @EnvironmentObject var news: News
+  @Binding var feed: FeedData
   var body: some View {
     NavigationView {
       ScrollView {
@@ -19,14 +21,14 @@ struct HomeGalleryView: View {
           ),
           spacing: 10
         ) {
-          ForEach(updates.transactions) { transaction in
+          ForEach(feed.feed_items) { feed_item in
 
-            NavigationLink(destination: UpdatesDetailView(transactions: transaction)) {
+            NavigationLink(destination: displayCorrectFeedView(feed_item.type, id: feed_item.id, news: news, updates: updates)) {
               VStack {
-                Text(transaction.issuer)
+                Text(feed_item.title)
                   .fontWeight(.bold)
                   .font(.title3)
-                Text(transaction.symbol)
+                Text(feed_item.date)
                   .font(.body)
               }
             }.buttonStyle(PlainButtonStyle())
@@ -37,8 +39,8 @@ struct HomeGalleryView: View {
   }
 }
 
-struct HomeGalleryView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeGalleryView()
-    }
-}
+//struct HomeGalleryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeGalleryView()
+//    }
+//}
