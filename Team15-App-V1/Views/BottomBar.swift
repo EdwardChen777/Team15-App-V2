@@ -10,11 +10,12 @@ import SwiftUI
 struct BottomBar: View {
   var updates = Updates()
   var news = News()
+  @State private var feed: FeedData = FeedData(articles: [], transactions: [])
 //  var fetch = ApiFetch()
   @EnvironmentObject var signUpController: SignUpController
   var body: some View {
       TabView {
-        HomeView()
+        HomeView(feed: $feed)
           .tabItem {
             Image(systemName: "house")
           }
@@ -37,6 +38,9 @@ struct BottomBar: View {
       }.accentColor(.black)
       .environmentObject(updates)
       .environmentObject(news)
+      .onAppear {
+                feed = FeedData(articles: news.articles, transactions: updates.transactions)
+              }
       .toolbarBackground(CustomColor.paleGreen)
 
 //      .environmentObject(fetch)
