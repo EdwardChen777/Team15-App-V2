@@ -83,6 +83,10 @@ class Updates: ObservableObject {
         return transaction.symbol.lowercased().contains(searchText.lowercased())
       }
   }
+  
+  func getTransaction(id: UUID) -> Transaction {
+    return self.transactions.first(where: { $0.id == id })!
+  }
 }
 
 struct Transaction: Identifiable {

@@ -9,21 +9,24 @@ import SwiftUI
 
 struct HomeListView: View {
   @EnvironmentObject var updates: Updates
+  @EnvironmentObject var news: News
+  @Binding var feed: FeedData
     var body: some View {
       NavigationView {
         List{
-          ForEach(updates.transactions) { transaction in
-            UpdatesRowView(transactions: transaction)
+          ForEach(feed.feed_items) { feed_item in
+            FeedRowView(feed_item: feed_item)
           }
-//          .onDelete(perform: removeRows)
         }
+      }.onAppear {
+        feed = FeedData(articles: news.articles, transactions: updates.transactions)
       }
       
     }
 }
 
-struct HomeListView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeListView()
-    }
-}
+//struct HomeListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeListView()
+//    }
+//}
