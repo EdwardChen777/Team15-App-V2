@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
   @State var selectedOption = "List"
   @EnvironmentObject var updates: Updates
+//  @ObservedObject var updates: Updates
     var body: some View {
         VStack {
             VStack{
@@ -22,7 +23,7 @@ struct HomeView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .ignoresSafeArea()
             VStack{
-              LabelledDivider(label: "Today's Politicion Movement").multilineTextAlignment(.center)
+              LabelledDivider(label: "Today's Transaction Movement").multilineTextAlignment(.center)
             }
             HStack{
                 VStack {
@@ -43,7 +44,7 @@ struct HomeView: View {
                 Spacer()
                 Image(systemName: "dollarsign.circle").imageScale(.large)
                 Spacer()
-                Text(String(updates.getTodayTradeVolume())).font(.system(size: 12))
+                Text(String(updates.getTodayTradeVolume(transactions: updates.transactions))).font(.system(size: 12))
                 Spacer()
             }.frame(width: 110, height: 110)
               .background(CustomColor.transGreen)

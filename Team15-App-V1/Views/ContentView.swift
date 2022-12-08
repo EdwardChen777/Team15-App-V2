@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     // have a variable of whether user is logged in or not
+  @StateObject var updates = Updates()
+  @StateObject var news = News()
   @State private var loggedIn = false
   @ObservedObject var signUpController = SignUpController(isLoggedin: false, needOnboarding: true,
       isNewUser: true)
@@ -19,6 +21,8 @@ struct ContentView: View {
             .environmentObject(signUpController)
         } else {
           BottomBar().environmentObject(signUpController)
+            .environmentObject(updates)
+            .environmentObject(news)
         }
         
       } else {
