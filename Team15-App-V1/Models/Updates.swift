@@ -131,6 +131,90 @@ class Updates: ObservableObject {
         return transaction.symbol.lowercased().contains(searchText.lowercased())
       }
   }
+  
+  func editDate(date: String) -> String {
+    var formatted_date = date.prefix(10)
+    return String(formatted_date)
+  }
+  
+  func getMostRecentDate() -> Date {
+//    var date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    var most_recent_date = dateFormatter.date(from: "1970/01/01")
+    for transaction in transactions {
+      var editedDate = editDate(date: transaction.filedAt)
+      var sampleDate = dateFormatter.date(from: editedDate)
+      if most_recent_date! < sampleDate! {
+        most_recent_date = sampleDate
+      }
+    }
+    return most_recent_date!
+  }
+  
+  func getTodayTransactionCount() -> Int {
+    while(transactions.count == 0) {}
+    var date = getMostRecentDate()
+    
+    var transaction_count = 0
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    for transaction in transactions {
+      if dateFormatter.date(from: transaction.filedAt) == date {
+        transaction_count = transaction_count + 1
+      }
+    }
+    
+    return transaction_count
+  }
+  
+  func getTodayTradeVolume() -> Int {
+//    while(transactions.count == 0) {}
+    var date = getMostRecentDate()
+    
+    var trade_volume = 0
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    for transaction in transactions {
+      if dateFormatter.date(from: transaction.filedAt) == date {
+        for item in transaction.derivative {
+          trade_volume = trade_volume + Int((item.pricePerShare*item.shares))
+        }
+        for item in transaction.nonDerivative {
+          trade_volume = trade_volume + Int((item.pricePerShare*item.shares))
+        }
+      }
+    }
+    return trade_volume
+  }
+  
+  func getTodayHotStock() -> String {
+//    while(transactions.count == 0) {}
+    var date = getMostRecentDate()
+    var Stock_Trade = [String: Int]()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    var count = transactions.count
+    for transaction in transactions {
+      if dateFormatter.date(from: transaction.filedAt) == date {
+        var amount1 = 0
+        var amount2 = 0
+        for item in transaction.derivative {
+          amount1 = Int((item.pricePerShare*item.shares))
+        }
+        for item in transaction.nonDerivative {
+          amount2 = Int((item.pricePerShare*item.shares))
+        }
+        if Stock_Trade.keys.contains(transaction.symbol) {
+          Stock_Trade[transaction.symbol] = Stock_Trade[transaction.symbol]! + amount1 + amount2
+        } else {
+          Stock_Trade[transaction.symbol] = amount1 + amount2
+        }
+      }
+    }
+    return ""
+//    return Stock_Trade.max { $0.value < $1.value }!.key
+  }
 }
 
 struct Transaction: Identifiable {

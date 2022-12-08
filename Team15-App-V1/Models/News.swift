@@ -54,7 +54,6 @@ class News: ObservableObject {
   
   func editDate(date: String) -> String {
     var formatted_date = date.prefix(10)
-//    let someDateTime = formatter.date(from: "2016/10/08 22:31")
     return String(formatted_date)
   }
   
