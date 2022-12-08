@@ -41,6 +41,8 @@
 		937A18E029173D9100A1DACC /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18DF29173D9000A1DACC /* LogInController.swift */; };
 		937A18E229173DA100A1DACC /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18E129173DA100A1DACC /* SignUpController.swift */; };
 		937A18E42917482B00A1DACC /* ValidateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18E32917482B00A1DACC /* ValidateController.swift */; };
+		938BED6B294243CA00F29B3A /* FeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BED6A294243CA00F29B3A /* FeedData.swift */; };
+		938BED6D2942451100F29B3A /* FeedRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BED6C2942451100F29B3A /* FeedRowView.swift */; };
 		938D32062941DB740060B4C4 /* CompaniesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D32052941DB740060B4C4 /* CompaniesDetailView.swift */; };
 		938D32082941DB830060B4C4 /* CompaniesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938D32072941DB830060B4C4 /* CompaniesRowView.swift */; };
 		938E421829237FA300F4550B /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E421729237FA300F4550B /* Onboarding.swift */; };
@@ -92,6 +94,8 @@
 		937A18DF29173D9000A1DACC /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		937A18E129173DA100A1DACC /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		937A18E32917482B00A1DACC /* ValidateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateController.swift; sourceTree = "<group>"; };
+		938BED6A294243CA00F29B3A /* FeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedData.swift; sourceTree = "<group>"; };
+		938BED6C2942451100F29B3A /* FeedRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedRowView.swift; sourceTree = "<group>"; };
 		938D32052941DB740060B4C4 /* CompaniesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesDetailView.swift; sourceTree = "<group>"; };
 		938D32072941DB830060B4C4 /* CompaniesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesRowView.swift; sourceTree = "<group>"; };
 		938E421729237FA300F4550B /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		937A18B72916E03300A1DACC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				938BED6A294243CA00F29B3A /* FeedData.swift */,
 				9345AE8A293E6D0F00238BA6 /* News.swift */,
 				937A18D229172E0900A1DACC /* User.swift */,
 				D46CFEED2919BBCE002F28CF /* Profile.swift */,
@@ -315,6 +320,7 @@
 		D46CFEF32919F16F002F28CF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				938BED6C2942451100F29B3A /* FeedRowView.swift */,
 				937A18C129171BBB00A1DACC /* HomeView.swift */,
 				D46CFEFA2919F41D002F28CF /* HomeGalleryView.swift */,
 				D46CFEF82919F411002F28CF /* HomeListView.swift */,
@@ -406,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938BED6B294243CA00F29B3A /* FeedData.swift in Sources */,
 				937A18C629171BDC00A1DACC /* ProfileView.swift in Sources */,
 				937A18CF2917267500A1DACC /* SignUp.swift in Sources */,
 				D46CFEEC291877E1002F28CF /* FollowingView.swift in Sources */,
@@ -426,6 +433,7 @@
 				D46CFEEE2919BBCE002F28CF /* Profile.swift in Sources */,
 				938E421A29237FB900F4550B /* OnboardingTab.swift in Sources */,
 				93D03AE7293E8205002CA7DE /* Company.swift in Sources */,
+				938BED6D2942451100F29B3A /* FeedRowView.swift in Sources */,
 				9345AE88293E6CD200238BA6 /* WebViewModel.swift in Sources */,
 				937A18C229171BBB00A1DACC /* HomeView.swift in Sources */,
 				938D32062941DB740060B4C4 /* CompaniesDetailView.swift in Sources */,

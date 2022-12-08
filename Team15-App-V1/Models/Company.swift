@@ -33,6 +33,7 @@ class Company: ObservableObject {
                                    ticker: d["ticker"] as? String ?? "none",
                                    logo: d["logo"] as? String ?? "none",
                                    industry: d["industry"] as? String ?? "none",
+                                   hasRecommendation: d["hasRecommendation"] as? Bool ?? false,
                                    buy: d["buy"] as? Int ?? -1,
                                    sell: d["sell"] as? Int ?? -1,
                                    hold: d["hold"] as? Int ?? -1,
@@ -40,11 +41,13 @@ class Company: ObservableObject {
                                    strongBuy: d["strongBuy"] as? Int ?? -1,
                                    strongSell: d["strongSell"] as? Int ?? -1,
                                    sum: d["sum"] as? Int ?? -1,
+                                   hasReddit: d["hasReddit"] as? Bool ?? false,
                                    redditTime: d["redditTime"] as? String ?? "none",
                                    redditMention: d["redditMention"] as? Int ?? -1,
                                    redditPosScore: d["redditPosScore"] as? Float ?? -1,
                                    redditNegScore: d["redditNegScore"] as? Float ?? -1,
                                    redditScore: d["redditScore"] as? Float ?? -1,
+                                   hasTwitter: d["hasTwitter"] as? Bool ?? false,
                                    twitterTime: d["twitterTime"] as? String ?? "none",
                                    twitterMention: d["twitterMention"] as? Int ?? -1,
                                    twitterPosScore: d["twitterPosScore"] as? Float ?? -1,
@@ -68,11 +71,14 @@ class Company: ObservableObject {
   }
   
   func search(searchText: String) {
-    print(self.filteredCompanies.count)
       self.filteredCompanies = self.companies.filter { company in
         return company.ticker.lowercased().contains(searchText.lowercased()) ||
           company.name.lowercased().contains(searchText.lowercased())
       }
+  }
+  
+  func follow() {
+    print("waiting to be implemented and possibly not in this class")
   }
 }
 
@@ -94,6 +100,8 @@ struct companyData: Identifiable {
   let ticker: String
   let logo: String
   let industry: String
+  
+  let hasRecommendation: Bool
   let buy: Int
   let sell: Int
   let hold: Int
@@ -102,12 +110,14 @@ struct companyData: Identifiable {
   let strongSell: Int
   let sum: Int
   
+  let hasReddit: Bool
   let redditTime: String
   let redditMention: Int
   let redditPosScore: Float
   let redditNegScore: Float
   let redditScore: Float
   
+  let hasTwitter: Bool
   let twitterTime: String
   let twitterMention: Int
   let twitterPosScore: Float
