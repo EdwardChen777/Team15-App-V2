@@ -9,12 +9,44 @@ import SwiftUI
 
 struct CompaniesRowView: View {
   var companies: companyData
+  
     var body: some View {
-      VStack{
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        Text(companies.industry)
-      }
-        
+      
+      NavigationLink(
+        destination: CompaniesDetailView(company: companies),
+        label: {
+          VStack(alignment: .leading){
+            Text("\(companies.name) (\(companies.ticker))")
+            //        RoundedRectangle(cornerRadius: 10)
+            //            .fill(CustomColor.transGreen)
+            //            .frame(width: ., height: 20)
+            //            .overlay(
+            //              Group{
+            //                VStack{
+            //                  Text(companies.industry)
+            //                }
+            //              }
+            //            ).font(.system(size: 12))
+            //      }
+    //        Text(companies.industry)
+    //          .font(.system(size: 12))
+    //        //          .foregroundColor(<#T##color: Color?##Color?#>)
+    //          .padding(10)
+    //          .overlay(
+    //            RoundedRectangle(cornerRadius: 10, style: .continuous)
+    //              .frame(maxWidth: .infinity)
+    //          )
+            Text(companies.industry)
+                .fixedSize(horizontal: true, vertical: false)
+                .multilineTextAlignment(.center)
+                .padding(5)
+                .font(.system(size:12))
+                .frame(width: 100, height: 20)
+                .background(RoundedRectangle(cornerRadius: 10).fill(CustomColor.transGreen))
+          }
+          
+      })
+      
     }
 }
 

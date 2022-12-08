@@ -10,12 +10,13 @@ import Foundation
 import SwiftUI
 
 struct NewsDetailView: View {
-  var articleLink: String
+//  var articleLink: String
+  var article: articleData
   @ObservedObject var viewModel = WebViewModel()
   
-  init(articleLink: String) {
-    self.articleLink = articleLink
-    viewModel.urlString = articleLink
+  init(article: articleData) {
+    self.article = article
+    viewModel.urlString = article.link
   }
 
   var body: some View {
