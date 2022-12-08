@@ -10,14 +10,18 @@ import SwiftUI
 struct SearchView: View {
   @State var searchField: String = ""
   @State var displayedTransactions = [Transaction]()
+  @State var displayedCompanies = [companyData]()
   @EnvironmentObject var updates: Updates
+  @EnvironmentObject var companies: Company
     var body: some View {
       let binding = Binding<String>(get: {
           self.searchField
         }, set: {
           self.searchField = $0
           self.updates.search(searchText: self.searchField)
+          self.companies.search(searchText: self.searchField)
           self.displayTransactions()
+          self.displayCompanies()
         })
       NavigationView {
         VStack {
@@ -25,7 +29,9 @@ struct SearchView: View {
           List{
             ForEach(displayedTransactions) {
               update in UpdatesRowView(transactions: update)
-              
+            }
+            ForEach(displayedCompanies) {
+              update in CompaniesRowView(companies: update)
             }
           }.navigationBarTitle("Swift Repos")
         }
@@ -35,13 +41,13 @@ struct SearchView: View {
     }
   
   func displayTransactions() {
-//    if searchField == "" {
-//      displayedTransactions = updates.transactions
-//    } else {
-//      displayedTransactions = updates.filteredTransactions
-//    }
     if searchField != "" {
       displayedTransactions = updates.filteredTransactions
+    }
+  }
+  func displayCompanies() {
+    if searchField != "" {
+      displayedCompanies = companies.filteredCompanies
     }
   }
 }

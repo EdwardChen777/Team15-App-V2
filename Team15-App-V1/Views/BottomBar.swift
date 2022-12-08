@@ -10,6 +10,7 @@ import SwiftUI
 struct BottomBar: View {
   var updates = Updates()
   var news = News()
+  var companies = Company()
 //  var fetch = ApiFetch()
   @EnvironmentObject var signUpController: SignUpController
   var body: some View {
@@ -18,26 +19,37 @@ struct BottomBar: View {
           .tabItem {
             Image(systemName: "house")
           }
+          .toolbarBackground(.visible, for: .tabBar)
+          .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
         UpdatesView()
           .tabItem {
             Image(systemName: "line.diagonal.arrow")
           }
+          .toolbarBackground(.visible, for: .tabBar)
+          .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
         SearchView()
           .tabItem {
             Image(systemName: "magnifyingglass")
           }
+          .toolbarBackground(.visible, for: .tabBar)
+          .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
         NewsView()
           .tabItem {
             Image(systemName: "newspaper")
           }
+          .toolbarBackground(.visible, for: .tabBar)
+          .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
         ProfileView()
           .tabItem {
             Image(systemName: "person")
           }
+          .toolbarBackground(.visible, for: .tabBar)
+          .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
       }.accentColor(.black)
       .environmentObject(updates)
       .environmentObject(news)
-      .toolbarBackground(CustomColor.paleGreen)
+      .environmentObject(companies)
+      
 
 //      .environmentObject(fetch)
   }
