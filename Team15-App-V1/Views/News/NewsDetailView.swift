@@ -10,7 +10,6 @@ import Foundation
 import SwiftUI
 
 struct NewsDetailView: View {
-//  var articleLink: String
   var article: articleData
   @ObservedObject var viewModel = WebViewModel()
   
