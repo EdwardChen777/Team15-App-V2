@@ -12,8 +12,10 @@ struct BottomBar: View {
 //  var updates = Updates()
 //  var news = News()
 
-  var updates = Updates()
-  var news = News()
+//  var updates = Updates()
+//  var news = News()
+  @EnvironmentObject var updates: Updates
+  @EnvironmentObject var news: News
   var companies = Company()
   @State private var feed: FeedData = FeedData(articles: [], transactions: [])
 
@@ -56,8 +58,8 @@ struct BottomBar: View {
 //      .environmentObject(updates)
 //      .environmentObject(news)
 
-      .environmentObject(updates)
-      .environmentObject(news)
+//      .environmentObject(updates)
+//      .environmentObject(news)
       .environmentObject(companies)
       .onAppear {
                 feed = FeedData(articles: news.articles, transactions: updates.transactions)

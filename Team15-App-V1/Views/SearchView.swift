@@ -25,7 +25,7 @@ struct SearchView: View {
         })
       NavigationView {
         VStack {
-          TextField("Search", text: binding)
+          TextField("Search for News and Updates", text: binding)
           List{
             ForEach(displayedTransactions) {
               update in UpdatesRowView(transactions: update)
@@ -33,7 +33,7 @@ struct SearchView: View {
             ForEach(displayedCompanies) {
               update in CompaniesRowView(companies: update)
             }
-          }.navigationBarTitle("Swift Repos")
+          }.navigationBarTitle("Search")
         }
 //        }.onAppear(perform: loadData)
         // replace the generic text above with a VStack as instructed

@@ -34,20 +34,14 @@ class FeedData: ObservableObject {
 //    let updates = Updates()
 //    transactions = updates.transactions
     
-    print("News Size: ")
-    print(articles.count)
-    
-    print("Transactions Size: ")
-    print(transactions.count)
-    
     for item in articles {
       feed_items.append(Feed(id: item.id, title: item.title, date: item.pubDate, type: "articleData"))
     }
     for item in transactions {
       feed_items.append(Feed(id: item.id, title: item.symbol, date: item.filedAt, type: "Transaction"))
     }
-    print("Feed items Size: ")
-    print(feed_items.count)
+//    print("Feed items Size: ")
+//    print(feed_items.count)
   }
   
   

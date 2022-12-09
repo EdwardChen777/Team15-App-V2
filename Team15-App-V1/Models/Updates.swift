@@ -173,6 +173,7 @@ class Updates: ObservableObject {
       }
     }
     return Stock_Trade.max { $0.value < $1.value }!.key
+  }
 
   func getTransaction(id: UUID) -> Transaction {
     return self.transactions.first(where: { $0.id == id })!
