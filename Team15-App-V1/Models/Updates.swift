@@ -7,7 +7,6 @@
 
 import Foundation
 import Firebase
-//import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 // fetch data from firebase and put in the updates object
@@ -27,56 +26,11 @@ class Updates: ObservableObject {
       if err == nil {
         if let snapshot = snapshot {
           self.transactions = snapshot.documents.map { d in
-//            print(d["filedAt"])
-//            print(d["derivative"]["action"])
-//            let identity = d["filedAt"] as? String ?? "none"
-//            var der = [updateAmount]()
-//            var nonDer = [updateAmount]()
-//            print("im here")
-//            // retrieve the derivative subcollection
-//            db.collection("transactions").document(identity).collection("derivative").addSnapshotListener {(querySnapshot, err) in
-//              print("im in the first layer")
-//                guard let derDoc = querySnapshot?.documents else {
-//                  print("no messages found")
-//                  return
-//                }
-////              print(derDoc.first)
-//              der = derDoc.map { e in
-//                let action = e["action"] as? String ?? "none"
-//                let pricePerShare = e["pricePerShare"] as? Float ?? 0.0
-//                let securityTitle = e["securityTitle"] as? String ?? "none"
-//                let shares = e["shares"] as? Float ?? 0.0
-//                let sharesOwned = e["sharesOwned"] as? Float ?? 0.0
-//                let transactionDate = e["transactionDate"] as? String ?? "none"
-//                print("im inside")
-//                print(transactionDate)
-//                return updateAmount(securityTitle: securityTitle, transactionDate: transactionDate, shares: shares, pricePerShare: pricePerShare, action: action, sharesOwned: sharesOwned)
-//              }
-//            }
-//
-//            // retrieve the nonDerivative subcollection
-//            db.collection("transactions").document(identity).collection("nonDerivative").addSnapshotListener { (querySnapshot, err) in
-//              guard let derDoc = querySnapshot?.documents else {
-//                print("no messages found")
-//                return
-//              }
-//
-//              nonDer = derDoc.map { e in
-//                let action = e["action"] as? String ?? "none"
-//                let pricePerShare = e["pricePerShare"] as? Float ?? 0.0
-//                let securityTitle = e["securityTitle"] as? String ?? "none"
-//                let shares = e["shares"] as? Float ?? 0.0
-//                let sharesOwned = e["sharesOwned"] as? Float ?? 0.0
-//                let transactionDate = e["transactionDate"] as? String ?? "none"
-//                return updateAmount(securityTitle: securityTitle, transactionDate: transactionDate, shares: shares, pricePerShare: pricePerShare, action: action, sharesOwned: sharesOwned)
-//              }
-//            }
+
             var der = [updateAmount]()
             var nonDer = [updateAmount]()
             if let derivative = d["derivative"] as? [Any] {
-//              derivative.map { e in
-//                return updateAmount(securityTitle: e["securityTitle"], transactionDate: e["transactionDate"], shares: e["shares"], pricePerShare: e["pricePerShare"], action: e["action"], sharesOwned: e["sharesOwned"])
-//              }
+
               for subDerivative in derivative {
                 if let subDer = subDerivative as? [String: Any] {
                   let securityTitle = subDer["securityTitle"] as? String ?? "none"
@@ -115,9 +69,7 @@ class Updates: ObservableObject {
                                nonDerivative: der,
                                derivative: nonDer)
           }
-//          for document in snapshot!.documents {
-//            self.transactions.append(Transaction(filedAt: document.filedAt, issuer: document.issuer, symbol: document.symbol, ownerName: document.ownerName, isDirector: document.isDirector, isOfficer: document.isOfficer, officerTitle: document.officerTitle, nonDerivative: document.nonDerivative, derivative: document.derivative))
-//          }
+
         }
       }
     }
@@ -132,6 +84,7 @@ class Updates: ObservableObject {
       }
   }
   
+
   func editDate(date: String) -> String {
     let formatted_date = date.prefix(10)
     return String(formatted_date)
@@ -220,6 +173,10 @@ class Updates: ObservableObject {
       }
     }
     return Stock_Trade.max { $0.value < $1.value }!.key
+
+  func getTransaction(id: UUID) -> Transaction {
+    return self.transactions.first(where: { $0.id == id })!
+
   }
 }
 

@@ -14,6 +14,11 @@ struct ContentView: View {
   @State private var loggedIn = false
   @ObservedObject var signUpController = SignUpController(isLoggedin: false, needOnboarding: true,
       isNewUser: true)
+  
+  init() {
+          UITabBar.appearance().barTintColor = UIColor.blue
+      }
+  
     var body: some View {
       if signUpController.isloggedin{
         if (signUpController.needOnboarding && signUpController.isNewUser){

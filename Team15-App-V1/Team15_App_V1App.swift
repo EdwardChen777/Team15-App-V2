@@ -45,49 +45,35 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 //          registerBackgroundTasks()
           return true
   }
-  func applicationDidEnterBackground(_ application: UIApplication){
-    scheduleAppRefresh()
-  }
+//  func applicationDidEnterBackground(_ application: UIApplication){
+//    scheduleAppRefresh()
+//  }
 }
 
-private func registerBackgroundTasks() {
-  BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.Team15-App-V1.refresh", using: nil) { task in
-//       scheduleLocalNotification()
-       handleAppRefresh(task: task as! BGAppRefreshTask)
-  }
-}
-
-
-func scheduleAppRefresh() {
-   let request = BGAppRefreshTaskRequest(identifier: "com.Team15-App-V1.refresh")
-   // Fetch no earlier than an hour from now.
-   request.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 60)
-        
-   do {
-      try BGTaskScheduler.shared.submit(request)
-   } catch {
-      print("Could not schedule app refresh: \(error)")
-   }
-}
-
-func handleAppRefresh(task: BGAppRefreshTask) {
-   // Schedule a new refresh task.
-   scheduleAppRefresh()
-
-   // Create an operation that performs the main part of the background task.
-   let operation = ApiFetch()
-   
-   // Provide the background task with an expiration handler that cancels the operation.
-//   task.expirationHandler = {
-//      operation.cancel()
-//   }
+//private func registerBackgroundTasks() {
+//  BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.Team15-App-V1.refresh", using: nil) { task in
+////       scheduleLocalNotification()
+//       handleAppRefresh(task: task as! BGAppRefreshTask)
+//  }
+//}
 //
-//   // Inform the system that the background task is complete
-//   // when the operation completes.
-//   operation.completionBlock = {
-//      task.setTaskCompleted(success: !operation.isCancelled)
-//   }
 //
-//   // Start the operation.
-//   operationQueue.addOperation(operation)
- }
+//func scheduleAppRefresh() {
+//   let request = BGAppRefreshTaskRequest(identifier: "com.Team15-App-V1.refresh")
+//   // Fetch no earlier than an hour from now.
+//   request.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 60)
+//
+//   do {
+//      try BGTaskScheduler.shared.submit(request)
+//   } catch {
+//      print("Could not schedule app refresh: \(error)")
+//   }
+//}
+//
+//func handleAppRefresh(task: BGAppRefreshTask) {
+//   // Schedule a new refresh task.
+//   scheduleAppRefresh()
+//
+//   // Create an operation that performs the main part of the background task.
+//   let operation = ApiFetch()
+// }

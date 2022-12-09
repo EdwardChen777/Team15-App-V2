@@ -26,7 +26,7 @@ struct UpdatesDetailView: View {
       ScrollView{
         VStack(alignment: .leading){
           
-          Text(transactions.symbol)
+          Text("\(transactions.issuer)(\(transactions.symbol))")
             .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
             .font(.title)
 //            .multilineTextAlignment(.leading)

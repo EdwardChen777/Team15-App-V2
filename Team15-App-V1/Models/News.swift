@@ -57,6 +57,9 @@ class News: ObservableObject {
     return String(formatted_date)
   }
   
+  func getArticle(id: UUID) -> articleData {
+    return self.articles.first(where: { $0.id == id })!
+  }
   
 }
 

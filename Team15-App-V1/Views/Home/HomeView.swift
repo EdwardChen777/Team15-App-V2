@@ -10,6 +10,9 @@ import SwiftUI
 struct HomeView: View {
   @State var selectedOption = "List"
   @EnvironmentObject var updates: Updates
+  @EnvironmentObject var news: News
+  @Binding var feed: FeedData
+
 //  @ObservedObject var updates: Updates
     var body: some View {
         VStack {
@@ -73,29 +76,25 @@ struct HomeView: View {
               Text("Gallery View").tag("Gallery")
           }.pickerStyle(.segmented)
 
-          displayCorrectView(selectedOption)
-          Spacer()
-        }
-        .padding()
-    }
-}
 
 
-// Adapted off of https://developer.apple.com/forums/thread/652955
-func displayCorrectView(_ selectedOption: String) -> some View {
-    switch selectedOption {
-    case "Gallery":
-        return AnyView(HomeGalleryView())
-    case "List":
-        return AnyView(HomeListView())
-    default:
-      return AnyView(HomeListView())
+        displayCorrectView(selectedOption)
+        Spacer()
+      }
+      .padding()
     }
+  }
   
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+  // Adapted off of https://developer.apple.com/forums/thread/652955
+  func displayCorrectView(_ selectedOption: String) -> some View {
+      switch selectedOption {
+      case "Gallery":
+        return AnyView(HomeGalleryView(feed: $feed))
+      case "List":
+        return AnyView(HomeListView(feed: $feed))
+      default:
+        return AnyView(HomeListView(feed: $feed))
+      }
+    
+  }
 }

@@ -15,14 +15,14 @@ struct AccountInformationView: View {
   let currentUser = Auth.auth().currentUser!
   
     var body: some View {
-      var authProfile = profiles.getProfileFor(currentUser.uid)
+      let authProfile = profiles.getProfileFor(currentUser.uid)
       VStack {
         Text("Account Information").font(.title)
         List {
           HStack{
             Text("Name:")
             Spacer()
-            Text(authProfile.firstname + " " + authProfile.lastname ?? "John Smith").foregroundColor(.gray)
+            Text(authProfile.firstname + " " + authProfile.lastname).foregroundColor(.gray)
           }
           HStack{
             Text("Email:")
@@ -32,7 +32,7 @@ struct AccountInformationView: View {
           HStack{
             Text("Phone Number:")
             Spacer()
-            Text(authProfile.phone_number ?? "No phone number on file").foregroundColor(.gray)
+            Text(authProfile.phone_number ).foregroundColor(.gray)
           }
         }
       }
