@@ -25,7 +25,7 @@ struct SearchView: View {
         })
       NavigationView {
         VStack {
-          TextField("Search for News and Updates", text: binding)
+          //TextField("Search for News and Updates", text: binding)
           List{
             ForEach(displayedTransactions) {
               update in UpdatesRowView(transactions: update)
@@ -34,6 +34,7 @@ struct SearchView: View {
               update in CompaniesRowView(companies: update)
             }
           }.navigationBarTitle("Search")
+            .searchable(text: binding, prompt: "Search for News and Updates")
         }
 //        }.onAppear(perform: loadData)
         // replace the generic text above with a VStack as instructed
