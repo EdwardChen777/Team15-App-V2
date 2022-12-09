@@ -84,8 +84,99 @@ class Updates: ObservableObject {
       }
   }
   
+
+  func editDate(date: String) -> String {
+    let formatted_date = date.prefix(10)
+    return String(formatted_date)
+  }
+  
+  func getMostRecentDate() -> Date {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    var most_recent_date = dateFormatter.date(from: "1970/01/01")
+    for transaction in transactions {
+      let editedDate = editDate(date: transaction.filedAt)
+      let sampleDate = dateFormatter.date(from: editedDate)
+      if most_recent_date! < sampleDate! {
+        most_recent_date = sampleDate
+      }
+    }
+    return most_recent_date!
+  }
+  
+  func getTodayTransactionCount() -> Int {
+    let date = getMostRecentDate()
+    
+    var transaction_count = 0
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    for transaction in transactions {
+      let transaction_date = dateFormatter.date(from: editDate(date: transaction.filedAt))
+      if transaction_date  == date {
+        transaction_count = transaction_count + 1
+      }
+    }
+    
+    return transaction_count
+  }
+  
+  func editDollars(dollarInt: Int) -> String {
+    var format = NumberFormatter()
+    format.groupingSeparator = ","
+    format.groupingSize = 3
+    format.usesGroupingSeparator = true
+    var dollar = format.string(from: dollarInt as NSNumber)!
+    return "$" + dollar
+  }
+  
+  func getTodayTradeVolume(transactions: [Transaction]) -> String {
+    let date = getMostRecentDate()
+    
+    var trade_volume = 0
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    for transaction in transactions {
+      let transaction_date = dateFormatter.date(from: editDate(date: transaction.filedAt))
+      if transaction_date == date {
+        for item in transaction.derivative {
+          trade_volume = trade_volume + Int((item.pricePerShare*item.shares))
+        }
+        for item in transaction.nonDerivative {
+          trade_volume = trade_volume + Int((item.pricePerShare*item.shares))
+        }
+      }
+    }
+    return editDollars(dollarInt: trade_volume)
+  }
+  
+  func getTodayHotStock() -> String {
+    let date = getMostRecentDate()
+    var Stock_Trade = [String: Int]()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    for transaction in transactions {
+      let transaction_date = dateFormatter.date(from: editDate(date: transaction.filedAt))
+      if transaction_date == date {
+        var amount1 = 0
+        var amount2 = 0
+        for item in transaction.derivative {
+          amount1 = Int((item.pricePerShare*item.shares))
+        }
+        for item in transaction.nonDerivative {
+          amount2 = Int((item.pricePerShare*item.shares))
+        }
+        if Stock_Trade.keys.contains(transaction.symbol) {
+          Stock_Trade[transaction.symbol] = Stock_Trade[transaction.symbol]! + amount1 + amount2
+        } else {
+          Stock_Trade[transaction.symbol] = amount1 + amount2
+        }
+      }
+    }
+    return Stock_Trade.max { $0.value < $1.value }!.key
+
   func getTransaction(id: UUID) -> Transaction {
     return self.transactions.first(where: { $0.id == id })!
+
   }
 }
 

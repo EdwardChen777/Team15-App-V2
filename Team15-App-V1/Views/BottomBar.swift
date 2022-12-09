@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct BottomBar: View {
+
+//  var updates = Updates()
+//  var news = News()
+
   var updates = Updates()
   var news = News()
   var companies = Company()
   @State private var feed: FeedData = FeedData(articles: [], transactions: [])
+
 //  var fetch = ApiFetch()
   @EnvironmentObject var signUpController: SignUpController
   var body: some View {
@@ -47,12 +52,17 @@ struct BottomBar: View {
           .toolbarBackground(.visible, for: .tabBar)
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
       }.accentColor(.black)
+
+//      .environmentObject(updates)
+//      .environmentObject(news)
+
       .environmentObject(updates)
       .environmentObject(news)
       .environmentObject(companies)
       .onAppear {
                 feed = FeedData(articles: news.articles, transactions: updates.transactions)
               }
+
       .toolbarBackground(CustomColor.paleGreen)
 
 //      .environmentObject(fetch)
