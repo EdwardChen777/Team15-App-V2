@@ -83,7 +83,6 @@ struct HomeView: View {
       }
       .padding()
     }
-  }
   
   // Adapted off of https://developer.apple.com/forums/thread/652955
   func displayCorrectView(_ selectedOption: String) -> some View {
