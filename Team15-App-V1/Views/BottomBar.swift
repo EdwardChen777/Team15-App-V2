@@ -29,7 +29,7 @@ struct BottomBar: View {
           }
           .toolbarBackground(.visible, for: .tabBar)
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
-        UpdatesView()
+        UpdatesView(current: updates.storyTransactions[0])
           .tabItem {
             Image(systemName: "line.diagonal.arrow")
           }
@@ -61,6 +61,7 @@ struct BottomBar: View {
 //      .environmentObject(updates)
 //      .environmentObject(news)
       .environmentObject(companies)
+      .environmentObject(updates)
       .onAppear {
                 feed = FeedData(articles: news.articles, transactions: updates.transactions)
               }

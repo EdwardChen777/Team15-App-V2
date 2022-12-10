@@ -20,7 +20,7 @@ class Company: ObservableObject {
     let db = Firestore.firestore()
     
     // add a field in python so that every document has a field of same value
-    db.collection("companies").whereField("exchange", isEqualTo: "NASDAQ NMS - GLOBAL MARKET")
+    db.collection("companies").whereField("identifiable", isEqualTo: "Team15")
         .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -44,12 +44,16 @@ class Company: ObservableObject {
                                    hasReddit: d["hasReddit"] as? Bool ?? false,
                                    redditTime: d["redditTime"] as? String ?? "none",
                                    redditMention: d["redditMention"] as? Int ?? -1,
+                                   redditPosMention: d["redditPosMention"] as? Int ?? -1,
+                                   redditNegMention: d["redditNegMention"] as? Int ?? -1,
                                    redditPosScore: d["redditPosScore"] as? Float ?? -1,
                                    redditNegScore: d["redditNegScore"] as? Float ?? -1,
                                    redditScore: d["redditScore"] as? Float ?? -1,
                                    hasTwitter: d["hasTwitter"] as? Bool ?? false,
                                    twitterTime: d["twitterTime"] as? String ?? "none",
                                    twitterMention: d["twitterMention"] as? Int ?? -1,
+                                   twitterPosMention: d["twitterPosMention"] as? Int ?? -1,
+                                   twitterNegMention: d["twitterNegMention"] as? Int ?? -1,
                                    twitterPosScore: d["twitterPosScore"] as? Float ?? -1,
                                    twitterNegScore: d["twitterNegScore"] as? Float ?? -1,
                                    twitterScore: d["twitterScore"] as? Float ?? -1)
@@ -113,6 +117,8 @@ struct companyData: Identifiable {
   let hasReddit: Bool
   let redditTime: String
   let redditMention: Int
+  let redditPosMention: Int
+  let redditNegMention: Int
   let redditPosScore: Float
   let redditNegScore: Float
   let redditScore: Float
@@ -120,6 +126,8 @@ struct companyData: Identifiable {
   let hasTwitter: Bool
   let twitterTime: String
   let twitterMention: Int
+  let twitterPosMention: Int
+  let twitterNegMention: Int
   let twitterPosScore: Float
   let twitterNegScore: Float
   let twitterScore: Float
