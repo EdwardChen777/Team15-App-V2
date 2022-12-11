@@ -13,11 +13,13 @@ class SignUpController: ObservableObject{
   @Published var isloggedin: Bool
   @Published var needOnboarding: Bool
   @Published var isNewUser: Bool
+  @Published var curFollowing: [String]
   
   init (isLoggedin: Bool, needOnboarding: Bool, isNewUser: Bool) {
     self.isloggedin = isLoggedin
     self.needOnboarding = needOnboarding
     self.isNewUser = isNewUser
+    self.curFollowing = []
   }
   
   func signup(email: String, password: String, firstname: String, lastname: String) {
@@ -35,6 +37,7 @@ class SignUpController: ObservableObject{
             self.isloggedin = true
           }
         }
+        
       }
     }
     
@@ -48,6 +51,20 @@ class SignUpController: ObservableObject{
       if error != nil {
         print("Error logging in")
       } else {
+        // get user following list
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        db.collection("users").whereField("uid", isEqualTo: userID)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                  if let temp = querySnapshot!.documents.first {
+                    self.curFollowing = temp["following"] as? [String] ?? []
+                  }
+                }
+        }
+        // set log in status to true
         self.isloggedin = true
       }
     }

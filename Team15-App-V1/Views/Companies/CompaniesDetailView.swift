@@ -19,7 +19,7 @@ struct CompaniesDetailView: View {
               .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
               .font(.title)
             Spacer()
-            Button(action: companies.follow) {
+            Button(action: {companies.follow(name: company.name)}) {
                 Text("Follow")
                 .padding(.leading, 5)
                 .padding(.trailing, 5)

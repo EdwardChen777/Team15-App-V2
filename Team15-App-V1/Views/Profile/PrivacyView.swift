@@ -11,7 +11,7 @@ struct PrivacyView: View {
     var body: some View {
       Text("Privacy Statement").font(.title)
       Section {
-        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+        Text("At Insdr, we take privacy and security seriously. This Privacy Policy outlines how Insdr and its affiliates (collectively, “Insdr,” “we,” “our,” or “us”) process the information we collect about you through our websites, mobile apps, and other online services (collectively, the “Services”) and when you otherwise interact with us, such as through our customer service channels.")
       }
       Spacer()
     }

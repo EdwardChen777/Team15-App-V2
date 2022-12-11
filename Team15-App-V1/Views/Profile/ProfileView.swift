@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
-
+//  @ObservedObject var signUpController: SignUpController
+  @EnvironmentObject var signUpController: SignUpController
   var body: some View {
     NavigationView {
       List {
@@ -56,6 +57,7 @@ struct ProfileView: View {
         }.headerProminence(.increased)
       }.navigationBarTitle("Preferences")
     }
+    .environmentObject(signUpController)
   }
   
 }

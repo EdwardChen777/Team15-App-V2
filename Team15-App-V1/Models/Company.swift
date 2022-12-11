@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 import FirebaseFirestoreSwift
 
 // i either nest the api calls or i get the value from first call the sequentially call (both not working)
@@ -81,8 +82,43 @@ class Company: ObservableObject {
       }
   }
   
-  func follow() {
-    print("waiting to be implemented and possibly not in this class")
+  func follow(name: String) {
+    guard let userID = Auth.auth().currentUser?.uid else { return }
+    let db = Firestore.firestore()
+    
+    db.collection("users").whereField("uid", isEqualTo: userID)
+        .getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+              if let temp = querySnapshot!.documents.first {
+                var list = temp["following"] as? [String] ?? []
+                if !list.contains(name) {
+                  list.append(name)
+                }
+                temp.reference.updateData(["following": list])
+              }
+            }
+    }
+  }
+  func unfollow(name: String) {
+    guard let userID = Auth.auth().currentUser?.uid else { return }
+    let db = Firestore.firestore()
+    
+    db.collection("users").whereField("uid", isEqualTo: userID)
+        .getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+              if let temp = querySnapshot!.documents.first {
+                var list = temp["following"] as? [String] ?? []
+                if list.contains(name) {
+                  list = list.filter {$0 == name}
+                }
+                temp.reference.updateData(["following": list])
+              }
+            }
+    }
   }
 }
 

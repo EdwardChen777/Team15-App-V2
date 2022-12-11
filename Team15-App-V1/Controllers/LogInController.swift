@@ -29,6 +29,8 @@ class LogInController: ObservableObject{
             print("Error saving user data")
           }
         }
+        
+        
         self.isloggedin = true
 //        transitionToHome()
       }
