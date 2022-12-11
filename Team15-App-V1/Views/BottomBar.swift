@@ -54,14 +54,9 @@ struct BottomBar: View {
           .toolbarBackground(.visible, for: .tabBar)
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
       }.accentColor(.black)
-
-//      .environmentObject(updates)
-//      .environmentObject(news)
-
-//      .environmentObject(updates)
-//      .environmentObject(news)
       .environmentObject(companies)
       .environmentObject(updates)
+      .environmentObject(signUpController)
       .onAppear {
                 feed = FeedData(articles: news.articles, transactions: updates.transactions)
               }

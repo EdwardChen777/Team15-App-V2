@@ -44,11 +44,15 @@ struct SearchView: View {
   func displayTransactions() {
     if searchField != "" {
       displayedTransactions = updates.filteredTransactions
+    } else {
+      displayedTransactions = []
     }
   }
   func displayCompanies() {
     if searchField != "" {
       displayedCompanies = companies.filteredCompanies
+    } else {
+      displayedCompanies = []
     }
   }
 }

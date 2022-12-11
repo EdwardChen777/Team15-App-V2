@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct FollowingView: View {
+//  @ObservedObject var signUpController: SignUpController
+  @EnvironmentObject var signUpController: SignUpController
     var body: some View {
-      Text("Following").font(.title)
+      ForEach(signUpController.curFollowing, id: \.self) { company in
+        Text(company)
+          .padding()
+      }.navigationBarTitle("Following")
     }
 }
 
-struct FollowingView_Previews: PreviewProvider {
-    static var previews: some View {
-        FollowingView()
-    }
-}
+//struct FollowingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FollowingView()
+//    }
+//}
