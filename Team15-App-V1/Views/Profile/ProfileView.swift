@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
 //  @ObservedObject var signUpController: SignUpController
   @EnvironmentObject var signUpController: SignUpController
+  @EnvironmentObject var companies: Company
   var body: some View {
     NavigationView {
       List {
@@ -58,6 +59,7 @@ struct ProfileView: View {
       }.navigationBarTitle("Preferences")
     }
     .environmentObject(signUpController)
+    .environmentObject(companies)
   }
   
 }

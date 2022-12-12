@@ -82,7 +82,7 @@ class Company: ObservableObject {
       }
   }
   
-  func follow(name: String) {
+  func follow(name: String, controller: SignUpController) {
     guard let userID = Auth.auth().currentUser?.uid else { return }
     let db = Firestore.firestore()
     
@@ -100,8 +100,12 @@ class Company: ObservableObject {
               }
             }
     }
+    if !controller.curFollowing.contains(name) {
+      controller.curFollowing.append(name)
+    }
+    
   }
-  func unfollow(name: String) {
+  func unfollow(name: String, controller: SignUpController) {
     guard let userID = Auth.auth().currentUser?.uid else { return }
     let db = Firestore.firestore()
     
@@ -113,12 +117,18 @@ class Company: ObservableObject {
               if let temp = querySnapshot!.documents.first {
                 var list = temp["following"] as? [String] ?? []
                 if list.contains(name) {
-                  list = list.filter {$0 == name}
+                  list = list.filter {$0 != name}
                 }
                 temp.reference.updateData(["following": list])
               }
             }
     }
+    
+    // update the curr follow list
+    if controller.curFollowing.contains(name) {
+      controller.curFollowing = controller.curFollowing.filter {$0 != name}
+    }
+    
   }
 }
 

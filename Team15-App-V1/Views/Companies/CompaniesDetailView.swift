@@ -11,6 +11,7 @@ import Charts
 struct CompaniesDetailView: View {
   var company: companyData
   @EnvironmentObject var companies: Company
+  @EnvironmentObject var signUpController: SignUpController
     var body: some View {
       ScrollView {
         VStack(alignment: .leading){
@@ -19,16 +20,30 @@ struct CompaniesDetailView: View {
               .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
               .font(.title)
             Spacer()
-            Button(action: {companies.follow(name: company.name)}) {
-                Text("Follow")
-                .padding(.leading, 5)
-                .padding(.trailing, 5)
-                .padding(.top, 2)
-                .padding(.bottom, 2)
+            if (signUpController.curFollowing.contains(company.name)) {
+              Button(action: {companies.unfollow(name: company.name, controller: signUpController)}) {
+                  Text("Unfollow")
+                  .padding(.leading, 5)
+                  .padding(.trailing, 5)
+                  .padding(.top, 2)
+                  .padding(.bottom, 2)
+              }
+              .background(CustomColor.paleGreen)
+              .cornerRadius(5.0)
+              .padding(.trailing, 8)
+            } else {
+              Button(action: {companies.follow(name: company.name, controller: signUpController)}) {
+                  Text("Follow")
+                  .padding(.leading, 5)
+                  .padding(.trailing, 5)
+                  .padding(.top, 2)
+                  .padding(.bottom, 2)
+              }
+              .background(CustomColor.paleGreen)
+              .cornerRadius(5.0)
+              .padding(.trailing, 8)
             }
-            .background(CustomColor.paleGreen)
-            .cornerRadius(5.0)
-            .padding(.trailing, 8)
+            
             
           }
           
