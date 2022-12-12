@@ -119,8 +119,11 @@ class Updates: ObservableObject {
               }
             }
             
-            
-            return Transaction(filedAt: d["filedAt"] as? String ?? "none",
+            var date = d["filedAt"] as? String ?? "none"
+            if (date != "none") {
+              date = String(date.prefix(10))
+            }
+            return Transaction(filedAt: date,
                                issuer: d["issuer"] as? String ?? "none",
                                symbol: d["symbol"] as? String ?? "none",
                                ownerName: d["ownerName"] as? String ?? "none",

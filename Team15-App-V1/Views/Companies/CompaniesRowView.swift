@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CompaniesRowView: View {
   var companies: companyData
-  
+  @EnvironmentObject var signUpController: SignUpController
     var body: some View {
       
       NavigationLink(
@@ -45,7 +45,7 @@ struct CompaniesRowView: View {
                 .background(RoundedRectangle(cornerRadius: 10).fill(CustomColor.transGreen))
           }
           
-      })
+        }).environmentObject(signUpController)
       
     }
 }

@@ -13,6 +13,7 @@ struct SearchView: View {
   @State var displayedCompanies = [companyData]()
   @EnvironmentObject var updates: Updates
   @EnvironmentObject var companies: Company
+  @EnvironmentObject var signUpController: SignUpController
     var body: some View {
       let binding = Binding<String>(get: {
           self.searchField
@@ -35,10 +36,11 @@ struct SearchView: View {
             }
           }.navigationBarTitle("Search")
             .searchable(text: binding, prompt: "Search for News and Updates")
+            .disableAutocorrection(true)
         }
 //        }.onAppear(perform: loadData)
         // replace the generic text above with a VStack as instructed
-      }
+      }.environmentObject(signUpController)
     }
   
   func displayTransactions() {

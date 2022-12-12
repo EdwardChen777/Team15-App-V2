@@ -50,6 +50,8 @@
 		93D03AE7293E8205002CA7DE /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D03AE6293E8204002CA7DE /* Company.swift */; };
 		93D03AEA293E834F002CA7DE /* FinnhubSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 93D03AE9293E834F002CA7DE /* FinnhubSwift */; };
 		93D03AEC293EA0D5002CA7DE /* Finnhub-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93D03AEB293EA0D5002CA7DE /* Finnhub-Info.plist */; };
+		93E59817294674F90023A237 /* FollowingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E59816294674F80023A237 /* FollowingRowView.swift */; };
+		93E5983A2946D6B10023A237 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93E598382946D6B10023A237 /* Model.xcdatamodeld */; };
 		93F849772934384F0097E63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F849762934384F0097E63A /* LaunchScreen.storyboard */; };
 		D46CFEE42918778C002F28CF /* AccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CFEE32918778C002F28CF /* AccountInformationView.swift */; };
 		D46CFEE62918779E002F28CF /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46CFEE52918779E002F28CF /* PrivacyView.swift */; };
@@ -102,6 +104,8 @@
 		938E421929237FB900F4550B /* OnboardingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTab.swift; sourceTree = "<group>"; };
 		93D03AE6293E8204002CA7DE /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		93D03AEB293EA0D5002CA7DE /* Finnhub-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Finnhub-Info.plist"; sourceTree = "<group>"; };
+		93E59816294674F80023A237 /* FollowingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingRowView.swift; sourceTree = "<group>"; };
+		93E598392946D6B10023A237 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		93F849762934384F0097E63A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D46CFEE32918778C002F28CF /* AccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationView.swift; sourceTree = "<group>"; };
 		D46CFEE52918779E002F28CF /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				937A18AC2916DD2200A1DACC /* Assets.xcassets */,
 				937A18AE2916DD2200A1DACC /* Preview Content */,
 				93D03AEB293EA0D5002CA7DE /* Finnhub-Info.plist */,
+				93E598382946D6B10023A237 /* Model.xcdatamodeld */,
 			);
 			path = "Team15-App-V1";
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				D46CFEE7291877BB002F28CF /* NotificationsView.swift */,
 				D46CFEE9291877CA002F28CF /* InterestsView.swift */,
 				D46CFEEB291877E1002F28CF /* FollowingView.swift */,
+				93E59816294674F80023A237 /* FollowingRowView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -440,8 +446,10 @@
 				937A18E229173DA100A1DACC /* SignUpController.swift in Sources */,
 				937A18AB2916DD2100A1DACC /* ContentView.swift in Sources */,
 				937A18A92916DD2100A1DACC /* Team15_App_V1App.swift in Sources */,
+				93E59817294674F90023A237 /* FollowingRowView.swift in Sources */,
 				9345AE83293E6CD200238BA6 /* NewsRowView.swift in Sources */,
 				93222677291A69BF00AD9343 /* Updates.swift in Sources */,
+				93E5983A2946D6B10023A237 /* Model.xcdatamodeld in Sources */,
 				D46CFEEA291877CA002F28CF /* InterestsView.swift in Sources */,
 				937A18CA29171BF500A1DACC /* UpdatesView.swift in Sources */,
 				937A18E42917482B00A1DACC /* ValidateController.swift in Sources */,
@@ -703,6 +711,19 @@
 			productName = FinnhubSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		93E598382946D6B10023A237 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93E598392946D6B10023A237 /* Model.xcdatamodel */,
+			);
+			currentVersion = 93E598392946D6B10023A237 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 937A189D2916DD2100A1DACC /* Project object */;
 }

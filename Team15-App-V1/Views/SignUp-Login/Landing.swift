@@ -47,7 +47,11 @@ struct Landing: View {
                     LabelledDivider(label: "Your Feed")
                 }
      */
-                Text("Welcome to Team 15 Project")
+              VStack{
+                Text("iNSDR")
+                Text("Insider transactions on the other side")
+              }
+                
                 Spacer()
                 NavigationLink(destination: SignUp()) {
                     HStack {
