@@ -27,7 +27,7 @@ class Updates: ObservableObject {
       if err == nil {
         if let snapshot = snapshot {
           self.storyTransactions = snapshot.documents.map { d in
-            print("hi im here")
+//            print("hi im here")
             var storyTrans = [StoryTransactions]()
             if let dbTrans = d["transactions"] as? [Any] {
               for dbTran in dbTrans {
@@ -72,7 +72,7 @@ class Updates: ObservableObject {
             return StoryUpdates(name: name, url: proPic, seen: false, proPic: proPic, loading: false, transactions: storyTrans)
           }
           self.filteredStoryTransactions = self.storyTransactions.filter { story in
-            return !story.proPic.isEmpty && story.transactions.count > 0
+            return !story.proPic.isEmpty && story.transactions.count > 0  && self.notSVG(image: story.proPic)
           }
           
         }
@@ -126,7 +126,7 @@ class Updates: ObservableObject {
             return Transaction(filedAt: date,
                                issuer: d["issuer"] as? String ?? "none",
                                symbol: d["symbol"] as? String ?? "none",
-                               ownerName: d["ownerName"] as? String ?? "none",
+                               ownerName: d["ownerName"] as? String ?? "Unknown",
                                isDirector: d["isDirector"] as? Bool ?? false,
                                isOfficer: d["isOfficer"] as? Bool ?? false,
                                officerTitle: d["officerTitle"] as? String ?? "none",
@@ -150,8 +150,13 @@ class Updates: ObservableObject {
   
   func filterStories() {
       self.filteredStoryTransactions = self.storyTransactions.filter { story in
-        return story.proPic.isEmpty && story.transactions.count > 0
+        return story.proPic.isEmpty && story.transactions.count > 0 && notSVG(image: story.proPic)
       }
+  }
+  
+  // Removed SVG images because very hard to implement in Swift
+  func notSVG(image: String) -> Bool {
+    return !image.contains(".svg")
   }
   
 

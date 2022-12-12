@@ -35,6 +35,7 @@ struct UpdatesDetailView: View {
             .foregroundColor(Color.black)
           // line
           HStack{
+            Spacer()
               RoundedRectangle(cornerRadius: 10)
                   .fill(CustomColor.transGreen)
                   .frame(width: 110, height: 110)
@@ -59,14 +60,10 @@ struct UpdatesDetailView: View {
                       }
                     }
                   ).font(.system(size: 12))
-              Spacer()
-              RoundedRectangle(cornerRadius: 10)
-                  .fill(CustomColor.transGreen)
-                  .frame(width: 110, height: 110)
-                  .overlay(Text("Hottest Stock")).font(.system(size: 12))
+            Spacer()
           }
           
-          Text("Transaction owner: \(transactions.ownerName)")
+          Text("Transaction owner: \(transactions.ownerName.capitalized)")
             .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
         }
 
