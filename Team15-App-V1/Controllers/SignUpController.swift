@@ -71,6 +71,10 @@ class SignUpController: ObservableObject{
     self.isNewUser = false
   }
   
+  func logout() {
+    self.isloggedin = false
+  }
+  
   func completeOnboarding() {
     self.needOnboarding = false
   }
