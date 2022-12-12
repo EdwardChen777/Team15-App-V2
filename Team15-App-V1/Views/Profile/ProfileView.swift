@@ -36,9 +36,6 @@ struct ProfileView: View {
                 .fontWeight(.bold)
                 .font(.body)
             })
-          //        Button(action: logout) {
-          //            Text("Logout")
-          //        }
         }.headerProminence(.increased)
         Section(header: Text("Account Preferences")) {
           NavigationLink(
@@ -60,6 +57,22 @@ struct ProfileView: View {
     }
     .environmentObject(signUpController)
     .environmentObject(companies)
+    .safeAreaInset(edge: .bottom) {
+      Button(action: signUpController.logout) {
+        HStack {
+          Spacer()
+          Text("Log Out")
+            .font(.headline)
+            .foregroundColor(Color.white)
+          Spacer()
+        }
+      }
+      .padding(.vertical, 10.0)
+      .background(CustomColor.paleGreen)
+      .cornerRadius(10.0)
+      .padding(.horizontal, 75)
+      .padding(.bottom, 25)
+    }
   }
   
 }
