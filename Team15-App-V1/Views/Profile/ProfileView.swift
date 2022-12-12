@@ -39,13 +39,6 @@ struct ProfileView: View {
         }.headerProminence(.increased)
         Section(header: Text("Account Preferences")) {
           NavigationLink(
-            destination: InterestsView(),
-            label: {
-              Text("Interests & Preferences")
-                .fontWeight(.bold)
-                .font(.body)
-            })
-          NavigationLink(
             destination: FollowingView(),
             label: {
               Text("Following")
