@@ -11,6 +11,7 @@ struct ProfileView: View {
 //  @ObservedObject var signUpController: SignUpController
   @EnvironmentObject var signUpController: SignUpController
   @EnvironmentObject var companies: Company
+  @EnvironmentObject var executives: Executives
     var body: some View {
         VStack{
             VStack{
@@ -64,13 +65,6 @@ struct ProfileView: View {
                 }.headerProminence(.increased)
                 Section(header: Text("Account Preferences")) {
                     NavigationLink(
-                        destination: InterestsView(),
-                        label: {
-                            Text("Interests & Preferences")
-                                .fontWeight(.bold)
-                                .font(.body)
-                        })
-                    NavigationLink(
                         destination: FollowingView(),
                         label: {
                             Text("Following")
@@ -78,12 +72,12 @@ struct ProfileView: View {
                                 .font(.body)
                         })
                 }.headerProminence(.increased)
-            }
-            //.navigationBarTitle("Preferences")
+            }.navigationBarTitle("Preferences")
         }
         .padding([.top], -50)
         .environmentObject(signUpController)
         .environmentObject(companies)
+        .environmentObject(executives)
         .safeAreaInset(edge: .bottom) {
             Button(action: signUpController.logout) {
                 HStack {
@@ -99,6 +93,7 @@ struct ProfileView: View {
             .cornerRadius(10.0)
             .padding(.horizontal, 75)
             .padding(.bottom, 25)
+
         }
     }
   }

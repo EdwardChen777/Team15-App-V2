@@ -14,12 +14,28 @@ class SignUpController: ObservableObject{
   @Published var needOnboarding: Bool
   @Published var isNewUser: Bool
   @Published var curFollowing: [String]
+  @Published var execFollowing: [String]
+  @Published var isDefaultUser: Bool
+  
   
   init (isLoggedin: Bool, needOnboarding: Bool, isNewUser: Bool) {
     self.isloggedin = isLoggedin
     self.needOnboarding = needOnboarding
     self.isNewUser = isNewUser
     self.curFollowing = []
+    self.execFollowing = []
+    self.isDefaultUser = false
+//    let defaults = UserDefaults.standard
+//    defaults.removeObject(forKey: "user")
+//    if let savedUserData = defaults.object(forKey: "user") as? Data {
+//        let decoder = JSONDecoder()
+//        if let savedUser = try? decoder.decode(DefaultUser.self, from: savedUserData) {
+//            print("Saved user: \(savedUser)")
+//            print("here")
+//          login(email: savedUser.email, password: savedUser.password)
+//          self.isDefaultUser = true
+//        }
+//    }
   }
   
   func signup(email: String, password: String, firstname: String, lastname: String) {
@@ -35,6 +51,14 @@ class SignUpController: ObservableObject{
             print("Error saving user data")
           } else {
             self.isloggedin = true
+            
+            // storing user to user defaults
+//            let defaults = UserDefaults.standard
+//            let user = DefaultUser(email: email, password: password, rememberLogin: true, darkModeEnabled: false)
+//            let encoder = JSONEncoder()
+//            if let encodeUser = try? encoder.encode(user) {
+//              defaults.set(encodeUser, forKey: "user")
+//            }
           }
         }
         
@@ -61,18 +85,40 @@ class SignUpController: ObservableObject{
                 } else {
                   if let temp = querySnapshot!.documents.first {
                     self.curFollowing = temp["following"] as? [String] ?? []
+                    self.execFollowing = temp["execFollowing"] as? [String] ?? []
                   }
                 }
         }
         // set log in status to true
         self.isloggedin = true
+        
+        // storing user to user defaults
+//        let defaults = UserDefaults.standard
+//        let user = DefaultUser(email: email, password: password, rememberLogin: true, darkModeEnabled: false)
+//        let encoder = JSONEncoder()
+//        if let encodeUser = try? encoder.encode(user) {
+//          defaults.set(encodeUser, forKey: "user")
+//        }
       }
     }
     self.isNewUser = false
   }
   
+  func defaultLogin() {
+    let defaults = UserDefaults.standard
+    if let savedUserData = defaults.object(forKey: "user") as? Data {
+        let decoder = JSONDecoder()
+        if let savedUser = try? decoder.decode(DefaultUser.self, from: savedUserData) {
+            print("Saved user: \(savedUser)")
+          self.login(email: savedUser.email, password: savedUser.password)
+        }
+    }
+  }
+ 
   func logout() {
     self.isloggedin = false
+//    let defaults = UserDefaults.standard
+//    defaults.removeObject(forKey: "user")
   }
   
   func completeOnboarding() {
@@ -80,4 +126,11 @@ class SignUpController: ObservableObject{
   }
   
   
+}
+
+struct DefaultUser: Codable {
+  let email: String
+  let password: String
+  let rememberLogin: Bool
+  let darkModeEnabled: Bool
 }

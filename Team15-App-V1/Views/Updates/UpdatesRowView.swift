@@ -18,8 +18,9 @@ struct UpdatesRowView: View {
               Text(transactions.issuer)
                 .fontWeight(.bold)
                 .font(.title3)
-              Text(transactions.symbol)
+              Text("Transaction Made By: \(transactions.ownerName.capitalized)")
                 .font(.body)
+              Text("Date of Transaction: \(transactions.filedAt)")
             }
           }
           

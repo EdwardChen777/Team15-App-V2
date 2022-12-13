@@ -16,7 +16,22 @@ struct NewsRowView: View {
         label: {
           
           LazyVStack(alignment: .leading){
-            AsyncImage(url: URL(string: article.imageUrl))
+            AsyncImage(url: URL(string: article.imageUrl)) {
+              phase in
+              switch phase {
+                case .empty:
+                  Text("No image")
+                case .success(let image):
+                  image.resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 450, maxHeight: 200)
+                case .failure:
+                  EmptyView()
+                default:
+                  EmptyView()
+              }
+            
+            }
             //                    .scaledToFit()
 //                                .frame(height: 100)
             Text(article.title)

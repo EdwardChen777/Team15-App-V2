@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewsView: View {
   @EnvironmentObject var news: News
+  
     var body: some View {
         VStack{
             VStack{
@@ -46,10 +47,10 @@ struct NewsView: View {
         }
     }
 }
-
-struct NewsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsView()
-    }
-}
+//
+//struct NewsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewsView()
+//    }
+//}
 

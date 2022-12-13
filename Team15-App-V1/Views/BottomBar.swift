@@ -17,10 +17,13 @@ struct BottomBar: View {
   @EnvironmentObject var updates: Updates
   @EnvironmentObject var news: News
   var companies = Company()
+  var executives = Executives()
   @State private var feed: FeedData = FeedData(articles: [], transactions: [])
 
 //  var fetch = ApiFetch()
   @EnvironmentObject var signUpController: SignUpController
+  
+  
   var body: some View {
       TabView {
         HomeView(feed: $feed)
@@ -55,6 +58,7 @@ struct BottomBar: View {
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
       }.accentColor(.white)
       .environmentObject(companies)
+      .environmentObject(executives)
       .environmentObject(updates)
       .environmentObject(signUpController)
       .onAppear {

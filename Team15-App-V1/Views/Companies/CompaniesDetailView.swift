@@ -22,18 +22,21 @@ struct CompaniesDetailView: View {
             Spacer()
             if (signUpController.curFollowing.contains(company.name)) {
               Button(action: {companies.unfollow(name: company.name, controller: signUpController)}) {
-                  Text("Unfollow")
+                Text("Unfollow").bold()
                   .padding(.leading, 5)
                   .padding(.trailing, 5)
                   .padding(.top, 2)
                   .padding(.bottom, 2)
               }
-              .background(CustomColor.paleGreen)
-              .cornerRadius(5.0)
-              .padding(.trailing, 8)
+              .padding(.horizontal, 4)
+              .overlay(
+                          RoundedRectangle(cornerRadius: 5)
+                              .stroke(CustomColor.paleGreen)
+                      )
+              
             } else {
               Button(action: {companies.follow(name: company.name, controller: signUpController)}) {
-                  Text("Follow")
+                  Text("Follow").bold()
                   .padding(.leading, 5)
                   .padding(.trailing, 5)
                   .padding(.top, 2)
