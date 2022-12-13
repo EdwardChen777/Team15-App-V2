@@ -95,6 +95,7 @@ class News: ObservableObject {
             }
             i = i + 1
           }
+          self.articles = self.sortArticle()
         }
 
         }
@@ -115,6 +116,12 @@ class News: ObservableObject {
   
   func getArticle(id: UUID) -> articleData {
     return self.articles.first(where: { $0.id == id })!
+  }
+  
+  func sortArticle() -> [articleData] {
+    self.articles.shuffle()
+    self.articles.sort{ $0.rank && !$1.rank}
+    return self.articles
   }
   
 }

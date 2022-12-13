@@ -11,15 +11,36 @@ struct FollowingView: View {
 //  @ObservedObject var signUpController: SignUpController
   @EnvironmentObject var signUpController: SignUpController
   @EnvironmentObject var companies: Company
+  @EnvironmentObject var executives: Executives
+  
+  @State var type: Int = 0
     var body: some View {
-      
-      List{
-        ForEach(signUpController.curFollowing, id: \.self) { company in
-          FollowingRowView(company: company)
-            .environmentObject(signUpController)
-            .environmentObject(companies)
+      VStack{
+        Picker("Transaction Type", selection: $type) {
+          Text("Company").tag(0)
+          Text("Executives").tag(1)
         }
+        .pickerStyle(.segmented)
+        if (type == 0) {
+          List{
+            ForEach(signUpController.curFollowing, id: \.self) { company in
+              FollowingRowView(company: company)
+                .environmentObject(signUpController)
+                .environmentObject(companies)
+            }
+          }
+        } else {
+          List{
+            ForEach(signUpController.execFollowing, id: \.self) { company in
+              FollowingExecRowView(executive: company)
+                .environmentObject(signUpController)
+                .environmentObject(executives)
+            }
+          }
+        }
+        
       }.navigationBarTitle("Following")
+      
 //      ForEach(signUpController.curFollowing, id: \.self) { company in
 //        ZStack{
 //          RoundedRectangle(cornerRadius: 10)

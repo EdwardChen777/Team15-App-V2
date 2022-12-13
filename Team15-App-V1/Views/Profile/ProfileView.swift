@@ -11,6 +11,7 @@ struct ProfileView: View {
 //  @ObservedObject var signUpController: SignUpController
   @EnvironmentObject var signUpController: SignUpController
   @EnvironmentObject var companies: Company
+  @EnvironmentObject var executives: Executives
   var body: some View {
     NavigationView {
       List {
@@ -50,6 +51,7 @@ struct ProfileView: View {
     }
     .environmentObject(signUpController)
     .environmentObject(companies)
+    .environmentObject(executives)
     .safeAreaInset(edge: .bottom) {
       Button(action: signUpController.logout) {
         HStack {
