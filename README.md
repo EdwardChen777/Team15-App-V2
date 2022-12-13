@@ -16,7 +16,7 @@ Sample login:
 
 ### Company Search
 - `Apple`/`AAPL`
-- `Tesla`/`TSLA
+- `Tesla`/`TSLA`
 - `Microsoft`/`MSFT`
 
 ### Executive Search 
