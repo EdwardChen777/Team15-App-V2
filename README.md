@@ -4,14 +4,26 @@
 ## Important Notes:
 - Per Prof H and Anjali's instructions, we did not spend any time on testing and rather focused on our features. 
 - For the charts in each `updatedetailview`, you need to select `derivative` or `nonderivative` to view the charts 
-- You can search for updates or companies by typing in company name/ticker, such as `Apple` or `AAPL`
 
 Sample login:
 - Username: Ed882016@163.com
 - Password: 123456abc
 
+## Usage Explanation:
+### Search
+- You can search for updates or companies by typing in company name/ticker, such as `Apple` or `AAPL`
+- With the daily limits of reads from `Firebase` and API limits explained below, we only added limited data points 
+
+### Company Search
+- `Apple`/`AAPL`
+- `Tesla`/`TSLA
+- `Microsoft`/`MSFT`
+
+### Executive Search 
+- `Timothy Whealey`
+
 ## API Documentation:
-# SEC-API
+### SEC-API
 - API-Key: `ec5d36984349cb27b4707959304eb10a769d0026c9b56dde1c25fa3a76dbb02d`
 - Limitations: 100 calls in total per account
 - Get Insider transactions/executives information 
