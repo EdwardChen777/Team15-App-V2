@@ -40,6 +40,8 @@ class FeedData: ObservableObject {
     for item in transactions {
       feed_items.append(Feed(id: item.id, title: item.symbol, date: item.filedAt, type: "Transaction"))
     }
+    
+    feed_items.shuffle()
 //    print("Feed items Size: ")
 //    print(feed_items.count)
   }
