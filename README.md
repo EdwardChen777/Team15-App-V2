@@ -16,17 +16,18 @@ Sample login:
 - Limitations: 100 calls in total per account
 - Get Insider transactions/executives information 
 
-# Finnhub-API
+### Finnhub-API
 - API-Key: `ce74i7aad3iakcsvp5agce74i7aad3iakcsvp5b0`
 - Limitations: 30 calls/second & 100 calls/minute 
 - Get company details, recommendations, social sentiments 
+- Background Fetch With Python: `https://github.com/EdwardChen777/Team15_API_Fetch`
 
-# Yahoo-Finance
+### Yahoo-Finance
 - API-Key: `5193c1c87fmsh2d8a946b1721cbfp1e0eefjsn2e6fde45177d`
 - Limitations: 
 - Get news list from Yahoo Finance
 
-# Seeking Alpha
+### Seeking Alpha
 - API-Key: `5193c1c87fmsh2d8a946b1721cbfp1e0eefjsn2e6fde45177d`
 - Limitations: 
 - Get news list from Seeking Alpha
