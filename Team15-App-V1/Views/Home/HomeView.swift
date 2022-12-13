@@ -16,6 +16,20 @@ struct HomeView: View {
 //  @ObservedObject var updates: Updates
   var body: some View {
     ScrollView {
+//        VStack{
+//            Text("Search")
+//                .foregroundColor(Color.white)
+//                .font(.system(size: 40))
+//                .bold()
+//
+//                .padding(.bottom)
+//                .padding(.leading)
+//
+//        }
+//        .frame(maxWidth: .infinity, maxHeight: 125, alignment: .bottomLeading)
+//        .background(CustomColor.paleGreen)
+//
+//        .edgesIgnoringSafeArea(.top)
     VStack {
       VStack{
         Rectangle()
@@ -26,6 +40,7 @@ struct HomeView: View {
       .background(Color.green)
       .clipShape(RoundedRectangle(cornerRadius: 20))
       .ignoresSafeArea()
+        
       VStack{
         LabelledDivider(label: "Today's Transaction Movement").multilineTextAlignment(.center)
       }

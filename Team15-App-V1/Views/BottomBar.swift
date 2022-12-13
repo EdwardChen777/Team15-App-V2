@@ -40,7 +40,7 @@ struct BottomBar: View {
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
         SearchView()
           .tabItem {
-            Image(systemName: "magnifyingglass")
+              Image(systemName: "magnifyingglass")
           }
           .toolbarBackground(.visible, for: .tabBar)
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
@@ -56,7 +56,7 @@ struct BottomBar: View {
           }
           .toolbarBackground(.visible, for: .tabBar)
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
-      }.accentColor(.black)
+      }.accentColor(.white)
       .environmentObject(companies)
       .environmentObject(executives)
       .environmentObject(updates)

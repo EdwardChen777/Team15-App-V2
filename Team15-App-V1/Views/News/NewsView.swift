@@ -11,14 +11,40 @@ struct NewsView: View {
   @EnvironmentObject var news: News
   
     var body: some View {
-      NavigationView {
-        List{
-          ForEach(news.articles) { article in
-            NewsRowView(article: article)
-          }
-//          .onDelete(perform: removeRows)
-        }.navigationBarTitle("News")
-      }
+        VStack{
+            VStack{
+                Text("News")
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 40))
+                    .bold()
+                    .padding(.bottom)
+                    .padding(.leading)
+                
+            }
+            .frame(maxWidth: .infinity, maxHeight: 125, alignment: .bottomLeading)
+            .background(CustomColor.paleGreen)
+        
+            .edgesIgnoringSafeArea(.top)
+//            Text("")
+//                .foregroundColor(Color.white)
+//                .font(.system(size: 40))
+//            // .bold()
+//                .frame(maxWidth: .infinity, maxHeight: 125)
+//                .background(CustomColor.paleGreen)
+//
+//                .edgesIgnoringSafeArea(.top)
+//            //                    .padding([.bottom], -100)
+            NavigationView {
+                List{
+                    ForEach(news.articles) { article in
+                        NewsRowView(article: article)
+                    }
+                    //          .onDelete(perform: removeRows)
+                }
+                //.navigationBarTitle("News")
+            }
+            .padding([.top], -50)
+        }
     }
 }
 //
