@@ -27,7 +27,9 @@ struct UpdatesDetailView: View {
         VStack(alignment: .leading){
           
           Text("\(transactions.issuer)(\(transactions.symbol))")
-            .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
+                .foregroundColor(.black)
+
+            //.foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
             .font(.title)
 //            .multilineTextAlignment(.leading)
           
@@ -67,7 +69,8 @@ struct UpdatesDetailView: View {
           }
           
           Text("Transaction owner: \(transactions.ownerName)")
-            .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
+                .foregroundColor(.black)
+            //.foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
         }
 
         Picker("Transaction Type", selection: $type) {

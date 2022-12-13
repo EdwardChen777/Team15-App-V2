@@ -15,32 +15,73 @@ struct SearchView: View {
   @EnvironmentObject var companies: Company
   @EnvironmentObject var signUpController: SignUpController
     var body: some View {
-      let binding = Binding<String>(get: {
-          self.searchField
+        let binding = Binding<String>(get: {
+            self.searchField
         }, set: {
-          self.searchField = $0
-          self.updates.search(searchText: self.searchField)
-          self.companies.search(searchText: self.searchField)
-          self.displayTransactions()
-          self.displayCompanies()
+            self.searchField = $0
+            self.updates.search(searchText: self.searchField)
+            self.companies.search(searchText: self.searchField)
+            self.displayTransactions()
+            self.displayCompanies()
         })
-      NavigationView {
-        VStack {
-          //TextField("Search for News and Updates", text: binding)
-          List{
-            ForEach(displayedTransactions) {
-              update in UpdatesRowView(transactions: update)
+        //        VStack {
+        //            Text("Search")
+        //                .foregroundColor(Color.white)
+        //                .font(.system(size: 40))
+        //            // .bold()
+        //                .frame(maxWidth: .infinity, maxHeight: 100)
+        //                .background(CustomColor.paleGreen)
+        //
+        //                .edgesIgnoringSafeArea(.top)
+        //        }
+        VStack{
+            VStack{
+                Text("Search")
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 40))
+                    .bold()
+                    
+                    .padding(.bottom)
+                    .padding(.leading)
+                
             }
-            ForEach(displayedCompanies) {
-              update in CompaniesRowView(companies: update)
-            }
-          }.navigationBarTitle("Search")
-            .searchable(text: binding, prompt: "Search for News and Updates")
-            .disableAutocorrection(true)
+            .frame(maxWidth: .infinity, maxHeight: 125, alignment: .bottomLeading)
+            .background(CustomColor.paleGreen)
+        
+            .edgesIgnoringSafeArea(.top)
+            
+            NavigationView {
+                VStack {
+                    //            VStack {
+                    //                Text("Search")
+                    //                    .foregroundColor(Color.white)
+                    //                    .font(.system(size: 40))
+                    //                // .bold()
+                    //                    .frame(maxWidth: .infinity, maxHeight: 100)
+                    //                    .background(CustomColor.paleGreen)
+                    //
+                    //                    .edgesIgnoringSafeArea(.top)
+                    //            }
+                    //            .padding()
+                    List{
+                        ForEach(displayedTransactions) {
+                            update in UpdatesRowView(transactions: update)
+                        }
+                        ForEach(displayedCompanies) {
+                            update in CompaniesRowView(companies: update)
+                        }
+                    }
+                    
+                    //.navigationBarTitle("Search")
+                    .searchable(text: binding, prompt: "Search for News and Updates")
+                    .disableAutocorrection(true)
+                }
+                //        }.onAppear(perform: loadData)
+                // replace the generic text above with a VStack as instructed
+            }.environmentObject(signUpController)
+                .padding([.top], -50)
+            Spacer()
         }
-//        }.onAppear(perform: loadData)
-        // replace the generic text above with a VStack as instructed
-      }.environmentObject(signUpController)
     }
   
   func displayTransactions() {
