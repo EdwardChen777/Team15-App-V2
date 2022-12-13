@@ -27,7 +27,6 @@ class Updates: ObservableObject {
       if err == nil {
         if let snapshot = snapshot {
           self.storyTransactions = snapshot.documents.map { d in
-            print("hi im here")
             var storyTrans = [StoryTransactions]()
             if let dbTrans = d["transactions"] as? [Any] {
               for dbTran in dbTrans {
