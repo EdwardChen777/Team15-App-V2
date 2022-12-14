@@ -7,6 +7,7 @@
 
 import Foundation
 import XCTest
+
 @testable import Team15_App_V1
 
 class NewsTests: XCTestCase {

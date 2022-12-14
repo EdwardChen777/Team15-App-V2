@@ -24,6 +24,8 @@
 		9353D908294844A900E841F7 /* Team15_App_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353D907294844A900E841F7 /* Team15_App_V1Tests.swift */; };
 		9353D915294844B700E841F7 /* Team15_App_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353D914294844B700E841F7 /* Team15_App_V1UITests.swift */; };
 		9353D917294844B700E841F7 /* Team15_App_V1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353D916294844B700E841F7 /* Team15_App_V1UITestsLaunchTests.swift */; };
+		9367D1E2294A6A30002AB988 /* AnalystRatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367D1E1294A6A2F002AB988 /* AnalystRatingsView.swift */; };
+		9367D1E4294A6A38002AB988 /* SocialRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367D1E3294A6A37002AB988 /* SocialRatingView.swift */; };
 		937A18A92916DD2100A1DACC /* Team15_App_V1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18A82916DD2100A1DACC /* Team15_App_V1App.swift */; };
 		937A18AB2916DD2100A1DACC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18AA2916DD2100A1DACC /* ContentView.swift */; };
 		937A18AD2916DD2200A1DACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937A18AC2916DD2200A1DACC /* Assets.xcassets */; };
@@ -112,6 +114,8 @@
 		9353D912294844B700E841F7 /* Team15-App-V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Team15-App-V1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9353D914294844B700E841F7 /* Team15_App_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team15_App_V1UITests.swift; sourceTree = "<group>"; };
 		9353D916294844B700E841F7 /* Team15_App_V1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team15_App_V1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9367D1E1294A6A2F002AB988 /* AnalystRatingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalystRatingsView.swift; sourceTree = "<group>"; };
+		9367D1E3294A6A37002AB988 /* SocialRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialRatingView.swift; sourceTree = "<group>"; };
 		937A18A52916DD2100A1DACC /* Team15-App-V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Team15-App-V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937A18A82916DD2100A1DACC /* Team15_App_V1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team15_App_V1App.swift; sourceTree = "<group>"; };
 		937A18AA2916DD2100A1DACC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -373,7 +377,9 @@
 			isa = PBXGroup;
 			children = (
 				938D32052941DB740060B4C4 /* CompaniesDetailView.swift */,
+				9367D1E1294A6A2F002AB988 /* AnalystRatingsView.swift */,
 				938D32072941DB830060B4C4 /* CompaniesRowView.swift */,
+				9367D1E3294A6A37002AB988 /* SocialRatingView.swift */,
 			);
 			path = Companies;
 			sourceTree = "<group>";
@@ -614,12 +620,14 @@
 				9345AE86293E6CD200238BA6 /* WebView.swift in Sources */,
 				D46CFEE62918779E002F28CF /* PrivacyView.swift in Sources */,
 				9345AE85293E6CD200238BA6 /* NewsView.swift in Sources */,
+				9367D1E2294A6A30002AB988 /* AnalystRatingsView.swift in Sources */,
 				930D7C2F2920DFDA00F32683 /* UserRepository.swift in Sources */,
 				937A18E029173D9100A1DACC /* LogInController.swift in Sources */,
 				D46CFEEE2919BBCE002F28CF /* Profile.swift in Sources */,
 				938E421A29237FB900F4550B /* OnboardingTab.swift in Sources */,
 				93A000DE29490644003D692D /* Executives.swift in Sources */,
 				93D03AE7293E8205002CA7DE /* Company.swift in Sources */,
+				9367D1E4294A6A38002AB988 /* SocialRatingView.swift in Sources */,
 				938BED6D2942451100F29B3A /* FeedRowView.swift in Sources */,
 				9345AE88293E6CD200238BA6 /* WebViewModel.swift in Sources */,
 				937A18C229171BBB00A1DACC /* HomeView.swift in Sources */,

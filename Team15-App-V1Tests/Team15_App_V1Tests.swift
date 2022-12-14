@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Firebase
 @testable import Team15_App_V1
 
 final class Team15_App_V1Tests: XCTestCase {
