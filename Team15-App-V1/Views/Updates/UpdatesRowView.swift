@@ -9,9 +9,10 @@ import SwiftUI
 
 struct UpdatesRowView: View {
   var transactions: Transaction
+  @EnvironmentObject var signUpController: SignUpController
     var body: some View {
       NavigationLink(
-        destination: UpdatesDetailView(transactions: transactions),
+        destination: UpdatesDetailView(transactions: transactions).environmentObject(signUpController),
         label: {
           HStack{
             VStack(alignment: .leading){

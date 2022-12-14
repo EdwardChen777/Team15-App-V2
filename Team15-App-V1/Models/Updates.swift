@@ -49,7 +49,6 @@ class Updates: ObservableObject {
           }
           
           self.filteredStoryTransactions = snapshot.documents.map { d in
-            print("hi im here")
             var storyTrans = [StoryTransactions]()
             if let dbTrans = d["transactions"] as? [Any] {
               for dbTran in dbTrans {

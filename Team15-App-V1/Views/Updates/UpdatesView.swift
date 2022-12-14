@@ -10,7 +10,7 @@ import Charts
 
 struct UpdatesView: View {
   @EnvironmentObject var updates: Updates
-
+  @EnvironmentObject var signUpController: SignUpController
   
   @State var show = false
   @State var current: StoryUpdates
@@ -99,7 +99,7 @@ struct UpdatesView: View {
                 
                 List{
                   ForEach(updates.transactions) { transaction in
-                    UpdatesRowView(transactions: transaction)
+                    UpdatesRowView(transactions: transaction).environmentObject(signUpController)
                   }
                 }
                 

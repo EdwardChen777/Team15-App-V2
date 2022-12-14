@@ -14,6 +14,7 @@ struct UpdatesDetailView: View {
   
   // might need to initialize to transactions.nonDerivative
   @State var type: [updateAmount] = []
+  @EnvironmentObject var signUpController: SignUpController
   
 //  init(_ transaction: [updateAmount]) {
 //    _type = State<[updateAmount]>(initialValue: transaction)
@@ -90,8 +91,8 @@ struct UpdatesDetailView: View {
           .chartXAxisLabel("Price Per Share")
           .chartYAxisLabel("Shares Involved")
           .chartForegroundStyleScale([
-            "A": Color.green,
-            "D": Color.red
+            "A": signUpController.isAccessible ? CustomColor.accessibleGreen : Color.green,
+            "D": signUpController.isAccessible ? CustomColor.accessibleRed : Color.red
           ])
           .frame(height: 250)
         }

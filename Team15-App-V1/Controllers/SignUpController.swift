@@ -16,6 +16,7 @@ class SignUpController: ObservableObject{
   @Published var curFollowing: [String]
   @Published var execFollowing: [String]
   @Published var isDefaultUser: Bool
+  @Published var isAccessible: Bool
   
   
   init (isLoggedin: Bool, needOnboarding: Bool, isNewUser: Bool) {
@@ -25,6 +26,7 @@ class SignUpController: ObservableObject{
     self.curFollowing = []
     self.execFollowing = []
     self.isDefaultUser = false
+    self.isAccessible = false
 //    let defaults = UserDefaults.standard
 //    defaults.removeObject(forKey: "user")
 //    if let savedUserData = defaults.object(forKey: "user") as? Data {
@@ -46,7 +48,7 @@ class SignUpController: ObservableObject{
         print("Error creating user")
       } else {
         let db = Firestore.firestore()
-        db.collection("users").addDocument(data: ["firstname": firstname, "lastname": lastname, "uid": result!.user.uid]) { (error) in
+        db.collection("users").addDocument(data: ["firstname": firstname, "lastname": lastname, "uid": result!.user.uid, "accessible": false]) { (error) in
           if error != nil {
             print("Error saving user data")
           } else {
@@ -86,6 +88,7 @@ class SignUpController: ObservableObject{
                   if let temp = querySnapshot!.documents.first {
                     self.curFollowing = temp["following"] as? [String] ?? []
                     self.execFollowing = temp["execFollowing"] as? [String] ?? []
+                    self.isAccessible = temp["accessible"] as? Bool ?? false
                   }
                 }
         }
@@ -119,6 +122,20 @@ class SignUpController: ObservableObject{
     self.isloggedin = false
 //    let defaults = UserDefaults.standard
 //    defaults.removeObject(forKey: "user")
+    guard let userID = Auth.auth().currentUser?.uid else { return }
+    let db = Firestore.firestore()
+    
+    db.collection("users").whereField("uid", isEqualTo: userID)
+        .getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+              if let temp = querySnapshot!.documents.first {
+//                var list = temp["accessible"] as? Bool ?? false
+                temp.reference.updateData(["accessible": self.isAccessible])
+              }
+            }
+    }
   }
   
   func completeOnboarding() {
