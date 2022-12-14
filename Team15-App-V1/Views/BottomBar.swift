@@ -16,6 +16,7 @@ struct BottomBar: View {
 //  var news = News()
   @EnvironmentObject var updates: Updates
   @EnvironmentObject var news: News
+  @StateObject var profiles = UserRepository()
   var companies = Company()
   var executives = Executives()
   @State private var feed: FeedData = FeedData(articles: [], transactions: [])
@@ -40,7 +41,7 @@ struct BottomBar: View {
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
         SearchView()
           .tabItem {
-            Image(systemName: "magnifyingglass")
+              Image(systemName: "magnifyingglass")
           }
           .toolbarBackground(.visible, for: .tabBar)
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
@@ -56,11 +57,12 @@ struct BottomBar: View {
           }
           .toolbarBackground(.visible, for: .tabBar)
           .toolbarBackground(CustomColor.paleGreen, for: .tabBar)
-      }.accentColor(.black)
+      }.accentColor(.white)
       .environmentObject(companies)
       .environmentObject(executives)
       .environmentObject(updates)
       .environmentObject(signUpController)
+      .environmentObject(profiles)
       .onAppear {
                 feed = FeedData(articles: news.articles, transactions: updates.transactions)
               }
