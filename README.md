@@ -4,6 +4,8 @@
 ## Important Notes:
 - Per Prof H and Anjali's instructions, we did not spend any time on testing and rather focused on our features. 
 - For the charts in each `updatedetailview`, you need to select `derivative` or `nonderivative` to view the charts 
+- The app currently only supports #light mode# 
+- For accessibility, go to `preferences` -> `notifications` -> turn on `accessibility` to get a new set of colors for red and green
 
 Sample login:
 - Username: Ed882016@163.com
@@ -15,9 +17,7 @@ Sample login:
 - With the daily limits of reads from `Firebase` and API limits explained below, we only added limited data points 
 
 ### Company Search
-- `Apple`/`AAPL`
-- `Tesla`/`TSLA`
-- `Microsoft`/`MSFT`
+- `Electronic Arts`/`EA`
 
 ### Executive Search 
 - `Timothy Whealey`
