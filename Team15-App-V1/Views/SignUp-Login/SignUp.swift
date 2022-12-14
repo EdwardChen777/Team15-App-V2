@@ -102,7 +102,7 @@ struct SignUp: View {
                     }
                     Spacer()
                     Section {
-                        Button(action: {signUpController.signup(email: email, password: password, firstname: email,lastname: password)}) {
+                        Button(action: {signUpController.signup(email: email, password: password, firstname: firstname,lastname: lastname)}) {
                             HStack {
                                             Spacer()
                                             Text("Create Account")
@@ -116,7 +116,7 @@ struct SignUp: View {
                                     .cornerRadius(10.0)
                                     .padding(.horizontal, 50)
                 
-                    }.disabled(firstname.isEmpty || email.isEmpty)
+                    }.disabled(firstname.isEmpty || email.isEmpty || lastname.isEmpty || password.isEmpty)
                     Spacer()
                 }
                 
