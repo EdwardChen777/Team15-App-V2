@@ -19,6 +19,7 @@ struct FollowingRowView: View {
           if (signUpController.curFollowing.contains(company)) {
             Button(action: {companies.unfollow(name: company, controller: signUpController)}) {
                 Text("Unfollow")
+                .foregroundColor(.black)
                 .padding(.leading, 5)
                 .padding(.trailing, 5)
                 .padding(.top, 2)
@@ -30,6 +31,7 @@ struct FollowingRowView: View {
           } else {
             Button(action: {companies.follow(name: company, controller: signUpController)}) {
                 Text("Follow")
+                .foregroundColor(.black)
                 .padding(.leading, 5)
                 .padding(.trailing, 5)
                 .padding(.top, 2)

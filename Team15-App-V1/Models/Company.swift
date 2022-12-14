@@ -181,6 +181,30 @@ struct companyData: Identifiable {
   var id = UUID()
 }
 
+func getMaxOption(company: companyData) -> [String] {
+  let reccs = ["Strong Buy": company.strongBuy,
+               "Buy": company.buy,
+               "Hold": company.hold,
+               "Sell": company.sell,
+               "Strong Sell":  company.strongSell]
+  
+  let reccColor = ["Strong Buy": "green",
+                   "Buy": "green",
+                   "Hold": "orange",
+                   "Sell": "red",
+                   "Strong Sell":  "red"]
+  
+  
+  let maxOption = reccs.max { $0.value < $1.value }!.key
+  let maxAmount = String(reccs.max { $0.value < $1.value }!.value)
+  let color = reccColor[maxOption]
+
+  
+  
+  
+  return [maxOption, color!, maxAmount]
+}
+
 
 
 
