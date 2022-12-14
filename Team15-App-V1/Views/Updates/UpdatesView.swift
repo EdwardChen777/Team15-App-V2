@@ -10,7 +10,7 @@ import Charts
 
 struct UpdatesView: View {
   @EnvironmentObject var updates: Updates
-
+  @EnvironmentObject var signUpController: SignUpController
   
   @State var show = false
   @State var current: StoryUpdates
@@ -201,6 +201,91 @@ struct UpdatesView: View {
                     
                 }
                 
+                List{
+                  ForEach(updates.transactions) { transaction in
+                    UpdatesRowView(transactions: transaction).environmentObject(signUpController)
+                  }
+                }
+                
+              }.navigationBarTitle(self.show ? "" : "Updates")
+                .navigationBarHidden(self.show ? true : false)
+              
+              if self.show{
+                ZStack {
+                  Color.gray.edgesIgnoringSafeArea(.all)
+//                  CustomColor.paleGreen.edgesIgnoringSafeArea(.all)
+                  
+                  ZStack(alignment: .topLeading) {
+                    GeometryReader{ _ in
+                      VStack{
+                        // charts here or something
+                        Text("hi")
+//                        Image(self.current.url)
+//                          .resizable()
+//                          .aspectRatio(contentMode: .fit)
+                      }
+                    }
+                    VStack(spacing: 12){
+                      
+                      Loader(show: self.$show)
+                      
+                      HStack(spacing: 15){
+                        AsyncImage(url: URL(string: self.current.proPic))
+//                          .resizable()
+                          .frame(width: 55, height: 55)
+                          .clipShape(Circle())
+//                        Image(self.current.proPic)
+//                          .resizable()
+//                          .frame(width: 55, height: 55)
+//                          .clipShape(Circle())
+                        
+                        Text(self.current.name)
+                          .foregroundColor(.white)
+                        
+                        Spacer()
+                      }
+                      .padding(.leading)
+                      
+                      // graph
+                      
+                      GroupBox ("Non Derivative Transactions") {
+                        Chart(self.current.transactions) { element in
+//                          if element.transactionPrice > 0 {
+                            BarMark (
+                              x: .value("Name",element.transactionPrice),
+                              y: .value("Total Value",element.share)
+                            )
+                            .foregroundStyle(by: .value("Action",element.transactionCode))
+                            .position(by: .value("Action",element.transactionCode))
+//                          }
+
+                        }
+                        .chartYAxis {
+                          AxisMarks(position: .leading)
+                        }
+                        .chartXAxisLabel("Price Per Share")
+                        .chartYAxisLabel("Shares Involved")
+//                        .chartForegroundStyleScale([
+//                          "P": Color.green,
+//                          "S": Color.red
+//                        ])
+                        .frame(height: 250)
+                      }
+                    }
+                    .padding(.top)
+                  
+                  }
+                }
+                .toolbar(.hidden, for: .tabBar)
+                .transition(.move(edge: .trailing))
+                .onTapGesture {
+//                  withAnimation(.default) {
+//                    self.show = false
+//                  }
+                  self.show.toggle()
+                }
+              }
+
             }
             .padding([.top], -50)
       }

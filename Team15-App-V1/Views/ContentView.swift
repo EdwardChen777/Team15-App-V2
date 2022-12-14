@@ -24,7 +24,7 @@ struct ContentView: View {
     var body: some View {
       let userDefaults = UserDefaults.standard
 //      if (userDefaults.bool(forKey: "user") == false) {
-      if !signUpController.isDefaultUser {
+      
         if signUpController.isloggedin{
           if (signUpController.needOnboarding && signUpController.isNewUser){
             Onboarding()
@@ -38,11 +38,6 @@ struct ContentView: View {
         } else {
           Landing().environmentObject(signUpController)
         }
-      } else {
-        BottomBar().environmentObject(signUpController)
-          .environmentObject(updates)
-          .environmentObject(news)
-      }
         
 //      }
 //      else {

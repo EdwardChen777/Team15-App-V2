@@ -138,6 +138,8 @@ struct SignUp: View {
 struct CustomColor {
     static let paleGreen = Color("paleGreen")
     static let transGreen = Color("transGreen")
+    static let accessibleGreen = Color("accessibleGreen")
+    static let accessibleRed = Color("accessibleRed")
 }
 
 

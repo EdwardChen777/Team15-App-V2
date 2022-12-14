@@ -24,7 +24,6 @@ class Executives: ObservableObject {
         if let snapshot = snapshot {
           self.executives = snapshot.documents.map { d in
             let name = d["name"] as? String ?? "none"
-            print(name)
             return executiveData(execId: d["id"] as? String ?? "none",
                                  cik: d["cik"] as? String ?? "none",
                                  ticker: d["ticker"] as? String ?? "none",

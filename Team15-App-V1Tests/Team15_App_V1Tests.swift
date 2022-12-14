@@ -17,17 +17,6 @@ final class Team15_App_V1Tests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-  
-  
-    func testNews() {
-      
-      let news = News()
-      news.articles = [articleData(id: 1, link: "test", pubDate: "test", source: "test", title: "test", imageUrl: "test", rank: false),articleData(id: 2, link: "test2", pubDate: "test2", source: "test2", title: "test2", imageUrl: "test2", rank: false),articleData(id: 3, link: "test3", pubDate: "test3", source: "test3", title: "test3", imageUrl: "test3", rank: true)]
-      XCTAssert(news.getArticle(id: 2) == articleData(id: 2, link: "test2", pubDate: "test2", source: "test2", title: "test2", imageUrl: "test2", rank: false))
-      XCTAssertFalse(news.getArticle(id: 1) == articleData(id: 2, link: "test2", pubDate: "test2", source: "test2", title: "test2", imageUrl: "test2", rank: false))
-      XCTAssertEqual(news.getArticle(id: 3), articleData(id: 3, link: "test3", pubDate: "test3", source: "test3", title: "test3", imageUrl: "test3", rank: true))
-      XCTAssertNotEqual(validator.validate(email: "lorem ipsum dolor sit amet"), true)
-    }
 
 //    func testExample() throws {
 //        // This is an example of a functional test case.

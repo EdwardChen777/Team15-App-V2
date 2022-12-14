@@ -15,7 +15,7 @@ struct ExecutivesDetailView: View {
       ScrollView{
         VStack(alignment: .leading){
           HStack{
-            Text("\(executive.name)(\(executive.ticker))")
+            Text("\(executive.name)")
               .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
               .font(.title)
             Spacer()
@@ -45,6 +45,83 @@ struct ExecutivesDetailView: View {
               .padding(.trailing, 8)
             }
           }
+          
+          Text("Company: \(executive.ticker)")
+          Text("Position: \(executive.position)")
+          LabelledDivider(label: "Compensation")
+            .multilineTextAlignment(.center)
+            .font(.subheadline)
+          
+          VStack(alignment: .leading){
+            HStack{
+              ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.gray)
+                    .frame(width: 300, height: 10)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.green)
+                    .frame(width: CGFloat((300 * executive.salary)/executive.total), height: 10)
+              }
+              Text("\(100 * executive.salary/executive.total)% Salary")
+            }
+            HStack{
+              ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.gray)
+                    .frame(width: 300, height: 10)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.green)
+                    .frame(width: CGFloat((300 * executive.bonus)/executive.total), height: 10)
+//                        .frame(width: 100, height: 20)
+              }
+              Text("\(100 * executive.bonus/executive.total)% Bonus")
+            }
+            HStack{
+              ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.gray)
+                    .frame(width: 300, height: 10)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.orange)
+                    .frame(width: CGFloat((300 * executive.stockAwards)/executive.total), height: 10)
+              }
+              Text("\(100 * executive.stockAwards/executive.total)% Stock Awards")
+            }
+            HStack{
+              ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.gray)
+                    .frame(width: 300, height: 10)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.green)
+                    .frame(width: CGFloat((300 * executive.optionAwards)/executive.total), height: 10)
+              }
+              Text("\(100 * executive.optionAwards/executive.total)% Option Awards")
+            }
+            HStack{
+              ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.gray)
+                    .frame(width: 300, height: 10)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.green)
+                    .frame(width: CGFloat((300 * executive.nonEquityCompensation)/executive.total), height: 10)
+              }
+              Text("\(100 * executive.nonEquityCompensation/executive.total)% Non-Equity")
+            }
+            HStack{
+              ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.gray)
+                    .frame(width: 300, height: 10)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.green)
+                    .frame(width: CGFloat((300 * executive.otherCompensation)/executive.total), height: 10)
+              }
+              Text("\(100 * executive.otherCompensation/executive.total)% Other")
+            }
+          }
+          
         }
       }
     }
