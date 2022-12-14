@@ -15,13 +15,13 @@ struct Profile: Codable {
 
   var firstname: String
   var lastname: String
-  var phone_number: String
+//  var phone_number: String
   var uid: String
 
   enum CodingKeys: String, CodingKey {
     case firstname
     case lastname
-    case phone_number
+//    case phone_number
     case uid
   }
 }

@@ -11,7 +11,7 @@ import Firebase
 import FirebaseCore
 
 struct AccountInformationView: View {
-  @ObservedObject var profiles = UserRepository()
+  @EnvironmentObject var profiles: UserRepository
   let currentUser = Auth.auth().currentUser!
   
     var body: some View {
@@ -29,11 +29,11 @@ struct AccountInformationView: View {
             Spacer()
             Text(currentUser.email ?? "No email on file").foregroundColor(.gray)
           }
-          HStack{
-            Text("Phone Number:")
-            Spacer()
-            Text(authProfile.phone_number ).foregroundColor(.gray)
-          }
+//          HStack{
+//            Text("Phone Number:")
+//            Spacer()
+//            Text(authProfile.phone_number ).foregroundColor(.gray)
+//          }
         }
       }
     }

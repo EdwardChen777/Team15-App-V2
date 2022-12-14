@@ -16,6 +16,7 @@ struct BottomBar: View {
 //  var news = News()
   @EnvironmentObject var updates: Updates
   @EnvironmentObject var news: News
+  @StateObject var profiles = UserRepository()
   var companies = Company()
   var executives = Executives()
   @State private var feed: FeedData = FeedData(articles: [], transactions: [])
@@ -61,6 +62,7 @@ struct BottomBar: View {
       .environmentObject(executives)
       .environmentObject(updates)
       .environmentObject(signUpController)
+      .environmentObject(profiles)
       .onAppear {
                 feed = FeedData(articles: news.articles, transactions: updates.transactions)
               }
