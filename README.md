@@ -6,6 +6,7 @@
 - For the charts in each `updatedetailview`, you need to select `derivative` or `nonderivative` to view the charts 
 - The app currently only supports #light mode# 
 - For accessibility, go to `preferences` -> `notifications` -> turn on `accessibility` to get a new set of colors for red and green
+- The default ios buttons have white colors, which merges with the white background (still clickable just hard to see)
 
 Sample login:
 - Username: Ed882016@163.com
@@ -56,7 +57,7 @@ Sample login:
 - Login/Signup
 - News Page
 - 'Stories' on Updates page
-- Color Scheme
+- Accessible Colors
 
 ### B-Level
 - User Profile Customizability
