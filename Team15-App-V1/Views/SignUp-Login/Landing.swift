@@ -125,7 +125,7 @@ struct LabelledDivider: View {
     var body: some View {
         HStack {
             line
-            Text(label).foregroundColor(color).font(.system(size: 12))
+            Text(label).foregroundColor(color).font(.system(size: 14))
             line
         }
     }
