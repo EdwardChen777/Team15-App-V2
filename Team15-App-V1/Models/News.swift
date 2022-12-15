@@ -77,12 +77,16 @@ class News: ObservableObject {
                 if let title = attribute.title{
                   if let itemLink = item.links{
                     if let imageLink = itemLink.uriImage{
-                      print(i)
+                      let defaultImage = "https://static.seekingalpha.com/assets/og_image_1200-29b2bfe1a595477db6826bd2126c63ac2091efb7ec76347a8e7f81ba17e3de6c.png"
+                      var imageUrl = ""
+                      if (imageLink != defaultImage){
+                        imageUrl = imageLink
+                      }
                       if let articleLink = itemLink.articleLink{
                         if (i == 0) {
-                          self.articles.append(articleData(id: item.id, link: articleLink, pubDate: self.editDate(date: publishDate), source: "Seeking Alpha", title: title, imageUrl: imageLink, rank: true))
+                          self.articles.append(articleData(id: item.id, link: articleLink, pubDate: self.editDate(date: publishDate), source: "Seeking Alpha", title: title, imageUrl: imageUrl, rank: true))
                         } else {
-                          self.articles.append(articleData(id: item.id, link: articleLink, pubDate: self.editDate(date: publishDate), source: "Seeking Alpha", title: title, imageUrl: imageLink, rank: false))
+                          self.articles.append(articleData(id: item.id, link: articleLink, pubDate: self.editDate(date: publishDate), source: "Seeking Alpha", title: title, imageUrl: imageUrl, rank: false))
                         }
                         
                       }

@@ -24,6 +24,8 @@
 		9353D908294844A900E841F7 /* Team15_App_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353D907294844A900E841F7 /* Team15_App_V1Tests.swift */; };
 		9353D915294844B700E841F7 /* Team15_App_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353D914294844B700E841F7 /* Team15_App_V1UITests.swift */; };
 		9353D917294844B700E841F7 /* Team15_App_V1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353D916294844B700E841F7 /* Team15_App_V1UITestsLaunchTests.swift */; };
+		9367D1E6294A9256002AB988 /* SocialRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367D1E5294A9256002AB988 /* SocialRatingView.swift */; };
+		9367D1E8294A925C002AB988 /* AnalystRatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367D1E7294A925C002AB988 /* AnalystRatingsView.swift */; };
 		937A18A92916DD2100A1DACC /* Team15_App_V1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18A82916DD2100A1DACC /* Team15_App_V1App.swift */; };
 		937A18AB2916DD2100A1DACC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A18AA2916DD2100A1DACC /* ContentView.swift */; };
 		937A18AD2916DD2200A1DACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937A18AC2916DD2200A1DACC /* Assets.xcassets */; };
@@ -112,6 +114,8 @@
 		9353D912294844B700E841F7 /* Team15-App-V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Team15-App-V1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9353D914294844B700E841F7 /* Team15_App_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team15_App_V1UITests.swift; sourceTree = "<group>"; };
 		9353D916294844B700E841F7 /* Team15_App_V1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team15_App_V1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9367D1E5294A9256002AB988 /* SocialRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialRatingView.swift; sourceTree = "<group>"; };
+		9367D1E7294A925C002AB988 /* AnalystRatingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalystRatingsView.swift; sourceTree = "<group>"; };
 		937A18A52916DD2100A1DACC /* Team15-App-V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Team15-App-V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		937A18A82916DD2100A1DACC /* Team15_App_V1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team15_App_V1App.swift; sourceTree = "<group>"; };
 		937A18AA2916DD2100A1DACC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -279,8 +283,6 @@
 				930E4E3429317FD400071F46 /* Info.plist */,
 				930D7C2D2920DFB900F32683 /* DataRepositories */,
 				937A18D42917332F00A1DACC /* GoogleService-Info.plist */,
-				937A18BA2916E05F00A1DACC /* Resources */,
-				937A18B92916E05400A1DACC /* ViewModels */,
 				937A18B82916E03900A1DACC /* Views */,
 				937A18B72916E03300A1DACC /* Models */,
 				937A18B62916E02800A1DACC /* Controllers */,
@@ -345,20 +347,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		937A18B92916E05400A1DACC /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		937A18BA2916E05F00A1DACC /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		937A18CD2917263900A1DACC /* SignUp-Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,8 +360,10 @@
 		938D32042941DB550060B4C4 /* Companies */ = {
 			isa = PBXGroup;
 			children = (
+				9367D1E7294A925C002AB988 /* AnalystRatingsView.swift */,
 				938D32052941DB740060B4C4 /* CompaniesDetailView.swift */,
 				938D32072941DB830060B4C4 /* CompaniesRowView.swift */,
+				9367D1E5294A9256002AB988 /* SocialRatingView.swift */,
 			);
 			path = Companies;
 			sourceTree = "<group>";
@@ -624,9 +614,11 @@
 				9345AE88293E6CD200238BA6 /* WebViewModel.swift in Sources */,
 				937A18C229171BBB00A1DACC /* HomeView.swift in Sources */,
 				938D32062941DB740060B4C4 /* CompaniesDetailView.swift in Sources */,
+				9367D1E6294A9256002AB988 /* SocialRatingView.swift in Sources */,
 				937A18E229173DA100A1DACC /* SignUpController.swift in Sources */,
 				937A18AB2916DD2100A1DACC /* ContentView.swift in Sources */,
 				937A18A92916DD2100A1DACC /* Team15_App_V1App.swift in Sources */,
+				9367D1E8294A925C002AB988 /* AnalystRatingsView.swift in Sources */,
 				93E59817294674F90023A237 /* FollowingRowView.swift in Sources */,
 				9345AE83293E6CD200238BA6 /* NewsRowView.swift in Sources */,
 				93222677291A69BF00AD9343 /* Updates.swift in Sources */,

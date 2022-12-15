@@ -25,9 +25,11 @@ struct FollowingRowView: View {
                 .padding(.top, 2)
                 .padding(.bottom, 2)
             }
-            .background(CustomColor.paleGreen)
-            .cornerRadius(5.0)
-            .padding(.trailing, 8)
+            .padding(.horizontal, 4)
+            .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(CustomColor.paleGreen)
+                    )
           } else {
             Button(action: {companies.follow(name: company, controller: signUpController)}) {
                 Text("Follow")
