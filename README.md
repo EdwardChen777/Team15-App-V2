@@ -57,7 +57,7 @@ Sample login:
 - Login/Signup
 - News Page
 - 'Stories' on Updates page
-- Accessible Colors
+- Color Scheme
 
 ### B-Level
 - User Profile Customizability
