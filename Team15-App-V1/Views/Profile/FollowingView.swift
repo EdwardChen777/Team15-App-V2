@@ -16,11 +16,15 @@ struct FollowingView: View {
   @State var type: Int = 0
     var body: some View {
       VStack{
-        Picker("Transaction Type", selection: $type) {
-          Text("Company").tag(0)
-          Text("Executives").tag(1)
-        }
-        .pickerStyle(.segmented)
+          HStack{
+              Spacer()
+              Picker("Transaction Type", selection: $type) {
+                  Text("Company").tag(0)
+                  Text("Executives").tag(1)
+              }
+              .pickerStyle(.segmented)
+              Spacer()
+          }
         if (type == 0) {
           List{
             ForEach(signUpController.curFollowing, id: \.self) { company in

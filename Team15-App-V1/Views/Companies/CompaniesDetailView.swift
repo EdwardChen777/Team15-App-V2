@@ -16,18 +16,20 @@ struct CompaniesDetailView: View {
       ScrollView {
         VStack(alignment: .leading){
           HStack{
+              Spacer()
             Text("\(company.name)(\(company.ticker))")
-              .foregroundColor(Color(hue: 0.44, saturation: 0.706, brightness: 0.893))
+                  .foregroundColor(CustomColor.paleGreen)
               .font(.title)
+              .bold()
             Spacer()
             if (signUpController.curFollowing.contains(company.name)) {
               Button(action: {companies.unfollow(name: company.name, controller: signUpController)}) {
                 Text("Unfollow").bold()
                   .foregroundColor(.black)
-                  .padding(.leading, 5)
-                  .padding(.trailing, 5)
-                  .padding(.top, 2)
-                  .padding(.bottom, 2)
+                  .padding(.leading, 10)
+                  .padding(.trailing, 10)
+                  .padding(.top, 10)
+                  .padding(.bottom, 10)
               }
               .padding(.horizontal, 4)
               .overlay(
@@ -39,16 +41,16 @@ struct CompaniesDetailView: View {
               Button(action: {companies.follow(name: company.name, controller: signUpController)}) {
                   Text("Follow").bold()
                   .foregroundColor(.black)
-                  .padding(.leading, 5)
-                  .padding(.trailing, 5)
-                  .padding(.top, 2)
-                  .padding(.bottom, 2)
+                  .padding(.leading, 10)
+                  .padding(.trailing, 10)
+                  .padding(.top, 10)
+                  .padding(.bottom, 10)
               }
               .background(CustomColor.paleGreen)
               .cornerRadius(5.0)
               .padding(.trailing, 8)
             }
-            
+            Spacer()
             
           }
           

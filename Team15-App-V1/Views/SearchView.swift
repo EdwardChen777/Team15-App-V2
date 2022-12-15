@@ -58,12 +58,16 @@ struct SearchView: View {
             
             NavigationView {
                 VStack {
-                  Picker("Transaction Type", selection: $type) {
-                    Text("All").tag(0)
-                    Text("Company").tag(1)
-                    Text("Executives").tag(2)
-                  }
-                  .pickerStyle(.segmented)
+                    HStack{
+                        Spacer()
+                        Picker("Transaction Type", selection: $type) {
+                            Text("All").tag(0)
+                            Text("Company").tag(1)
+                            Text("Executives").tag(2)
+                        }
+                        .pickerStyle(.segmented)
+                        Spacer()
+                    }
                     if (type == 0){
                       List{
                         ForEach(displayedTransactions) {
@@ -75,7 +79,8 @@ struct SearchView: View {
                         ForEach(displayedExecutives) {
                           update in ExecutivesRowView(executives: update)
                         }
-                      }.navigationBarTitle("Search")
+                      }
+                      //.navigationBarTitle("Search")
                         .searchable(text: binding, prompt: "Search for News and Updates")
                         .disableAutocorrection(true)
                     } else if (type == 1) {
@@ -83,7 +88,8 @@ struct SearchView: View {
                         ForEach(displayedCompanies) {
                           update in CompaniesRowView(companies: update)
                         }
-                      }.navigationBarTitle("Search")
+                      }
+                      //.navigationBarTitle("Search")
                         .searchable(text: binding, prompt: "Search for News and Updates")
                         .disableAutocorrection(true)
                     } else {
@@ -91,7 +97,8 @@ struct SearchView: View {
                         ForEach(displayedExecutives) {
                           update in ExecutivesRowView(executives: update)
                         }
-                      }.navigationBarTitle("Search")
+                      }
+                      //.navigationBarTitle("Search")
                         .searchable(text: binding, prompt: "Search for News and Updates")
                         .disableAutocorrection(true)
                     }
