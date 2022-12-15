@@ -42,7 +42,7 @@ struct HomeView: View {
       .ignoresSafeArea()
         
       VStack{
-        LabelledDivider(label: "Today's Transaction Stats").multilineTextAlignment(.center)
+        LabelledDivider(label: "Today's Transaction Movement").multilineTextAlignment(.center)
       }
         HStack{
             VStack{
