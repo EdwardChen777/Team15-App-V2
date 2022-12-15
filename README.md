@@ -44,3 +44,22 @@ Sample login:
 - API-Key: `5193c1c87fmsh2d8a946b1721cbfp1e0eefjsn2e6fde45177d`
 - Limitations: 
 - Get news list from Seeking Alpha
+
+## Use Cases:
+### A-Level
+- Home Page
+- Home Page Customizability (List and Gallery View)
+- Updates Page (including chart views)
+- Search for Updates, Companies, and Executives
+- User Onboarding
+- Account Information Screen
+- Login/Signup
+- News Page
+- 'Stories' on Updates page
+- Color Scheme
+
+### B-Level
+- User Profile Customizability
+- Images and Company icons for various feed information (News and Updates as applicable)
+- Profile pages for companies and executives
+- 'Enhanced' UI for Rowviews
