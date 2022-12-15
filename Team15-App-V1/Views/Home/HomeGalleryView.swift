@@ -13,7 +13,7 @@ struct HomeGalleryView: View {
   @Binding var feed: FeedData
   var body: some View {
     NavigationView {
-      //ScrollView {
+      ScrollView {
         LazyVGrid(
           columns: Array(
             repeating: .init(.adaptive(minimum: 100), spacing: 10),
@@ -34,7 +34,7 @@ struct HomeGalleryView: View {
             }.buttonStyle(PlainButtonStyle())
           }.padding(10).frame(maxWidth: .infinity, maxHeight: .infinity).overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
         }
-      //}
+      }
     }
   }
 }

@@ -17,7 +17,7 @@ struct AccountInformationView: View {
     var body: some View {
       let authProfile = profiles.getProfileFor(currentUser.uid)
       VStack {
-        Text("Account Information").font(.title)
+        //Text("Account Information").font(.title)
         List {
           HStack{
             Text("Name:")
@@ -36,6 +36,7 @@ struct AccountInformationView: View {
 //          }
         }
       }
+      .navigationBarTitle("Account Information")
     }
 }
 

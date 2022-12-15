@@ -19,7 +19,7 @@ struct OnboardingTab: View {
           .resizable()
           .scaledToFit()
           .frame(width: 100, height: 100)
-          .foregroundColor(.teal)
+          .foregroundColor(CustomColor.paleGreen)
         Text(title)
           .font(.title).bold()
         Text(description)

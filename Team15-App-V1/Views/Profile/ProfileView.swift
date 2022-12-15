@@ -72,7 +72,8 @@ struct ProfileView: View {
                                 .font(.body)
                         })
                 }.headerProminence(.increased)
-            }.navigationBarTitle("Preferences")
+            }
+            //.navigationBarTitle("Preferences")
         }
         .padding([.top], -50)
         .environmentObject(signUpController)

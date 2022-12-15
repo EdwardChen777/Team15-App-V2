@@ -13,13 +13,18 @@ struct NotificationsView: View {
   
   @EnvironmentObject var signUpController: SignUpController
     var body: some View {
-      Text("Notifications").font(.title)
+      //Text("Notifications").font(.title)
       VStack {
         Toggle("Turn on Notifications", isOn: $notificationsOn)
         Toggle("Accessible Colors", isOn: $signUpController.isAccessible)
       }
+      .navigationBarTitle("Notifications")
       .toggleStyle(.switch)
+      .padding(.leading, 10)
+      .padding(.trailing, 20)
+        Spacer()
     }
+    
 }
 
 //struct NotificationsView_Previews: PreviewProvider {
