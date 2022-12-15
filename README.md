@@ -10,6 +10,7 @@
 Sample login:
 - Username: Ed882016@163.com
 - Password: 123456abc
+- Creating a new account for the full onboarding experience is recommended
 
 ## Usage Explanation:
 ### Search
