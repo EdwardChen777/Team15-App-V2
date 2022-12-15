@@ -23,21 +23,7 @@ struct UpdatesView: View {
   ]
   
     var body: some View {
-        VStack{
-            VStack{
-                Text("Updates")
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 40))
-                    .bold()
-                    
-                    .padding(.bottom)
-                    .padding(.leading)
-                
-            }
-            .frame(maxWidth: .infinity, maxHeight: 125, alignment: .bottomLeading)
-            .background(CustomColor.paleGreen)
-        
-            .edgesIgnoringSafeArea(.top)
+            
             NavigationView {
                 //        VStack{
                 
@@ -46,24 +32,21 @@ struct UpdatesView: View {
                     //              CustomColor.paleGreen.edgesIgnoringSafeArea(.all)
                     ZStack{
                         VStack{
+                          VStack{
+                              Text("Updates")
+                                  .foregroundColor(Color.white)
+                                  .font(.system(size: 40))
+                                  .bold()
+                                  .padding(.bottom)
+                                  .padding(.leading)
+                              
+                          }
+                          .frame(maxWidth: .infinity, maxHeight: 125, alignment: .bottomLeading)
+                          .background(CustomColor.paleGreen)
+                          .edgesIgnoringSafeArea(.top)
+                            
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 22){
-                                    // this button is kind of useless
-                                    Button(action: {}) {
-                                        VStack(spacing: 8) {
-                                            ZStack(alignment: .bottomTrailing) {
-                                                Image(systemName: "plus")
-                                                    .resizable()
-                                                    .frame(width: 12, height: 12)
-                                                    .padding(8)
-                                                    .background(Color.white)
-                                                    .clipShape(Circle())
-                                                    .offset(x: 6)
-                                            }
-                                            Text("You")
-                                                .foregroundColor(.black)
-                                        }
-                                    }
                                     ForEach(0..<updates.filteredStoryTransactions.count) { i in
                                         VStack(spacing: 8) {
                                             ZStack {
@@ -123,20 +106,10 @@ struct UpdatesView: View {
                             //.navigationBarHidden(self.show ? true : false)
                         
                         if self.show{
-                            ZStack {
-                                Color.gray.edgesIgnoringSafeArea(.all)
-                                //                  CustomColor.paleGreen.edgesIgnoringSafeArea(.all)
-                                
+                            ZStack(alignment: .topLeading) {
+//                                Color.gray.edgesIgnoringSafeArea(.all)
+                                CustomColor.paleGreen.edgesIgnoringSafeArea(.all)
                                 ZStack(alignment: .topLeading) {
-                                    GeometryReader{ _ in
-                                        VStack{
-                                            // charts here or something
-                                            Text("hi")
-                                            //                        Image(self.current.url)
-                                            //                          .resizable()
-                                            //                          .aspectRatio(contentMode: .fit)
-                                        }
-                                    }
                                     VStack(spacing: 12){
                                         
                                         Loader(show: self.$show)
@@ -190,10 +163,8 @@ struct UpdatesView: View {
                             }
                             .toolbar(.hidden, for: .tabBar)
                             .transition(.move(edge: .trailing))
+                            .padding([.top], -20)
                             .onTapGesture {
-                                //                  withAnimation(.default) {
-                                //                    self.show = false
-                                //                  }
                                 self.show.toggle()
                             }
                         }
@@ -210,88 +181,13 @@ struct UpdatesView: View {
               }.navigationBarTitle(self.show ? "" : "Updates")
                 .navigationBarHidden(self.show ? true : false)
               
-              if self.show{
-                ZStack {
-                  Color.gray.edgesIgnoringSafeArea(.all)
-//                  CustomColor.paleGreen.edgesIgnoringSafeArea(.all)
-                  
-                  ZStack(alignment: .topLeading) {
-                    GeometryReader{ _ in
-                      VStack{
-                        // charts here or something
-                        Text("hi")
-//                        Image(self.current.url)
-//                          .resizable()
-//                          .aspectRatio(contentMode: .fit)
-                      }
-                    }
-                    VStack(spacing: 12){
-                      
-                      Loader(show: self.$show)
-                      
-                      HStack(spacing: 15){
-                        AsyncImage(url: URL(string: self.current.proPic))
-//                          .resizable()
-                          .frame(width: 55, height: 55)
-                          .clipShape(Circle())
-//                        Image(self.current.proPic)
-//                          .resizable()
-//                          .frame(width: 55, height: 55)
-//                          .clipShape(Circle())
-                        
-                        Text(self.current.name)
-                          .foregroundColor(.white)
-                        
-                        Spacer()
-                      }
-                      .padding(.leading)
-                      
-                      // graph
-                      
-                      GroupBox ("Non Derivative Transactions") {
-                        Chart(self.current.transactions) { element in
-//                          if element.transactionPrice > 0 {
-                            BarMark (
-                              x: .value("Name",element.transactionPrice),
-                              y: .value("Total Value",element.share)
-                            )
-                            .foregroundStyle(by: .value("Action",element.transactionCode))
-                            .position(by: .value("Action",element.transactionCode))
-//                          }
-
-                        }
-                        .chartYAxis {
-                          AxisMarks(position: .leading)
-                        }
-                        .chartXAxisLabel("Price Per Share")
-                        .chartYAxisLabel("Shares Involved")
-//                        .chartForegroundStyleScale([
-//                          "P": Color.green,
-//                          "S": Color.red
-//                        ])
-                        .frame(height: 250)
-                      }
-                    }
-                    .padding(.top)
-                  
-                  }
-                }
-                .toolbar(.hidden, for: .tabBar)
-                .transition(.move(edge: .trailing))
-                .onTapGesture {
-//                  withAnimation(.default) {
-//                    self.show = false
-//                  }
-                  self.show.toggle()
-                }
-              }
 
             }
-            .padding([.top], -50)
-      }
+
+      
         
         
-    }
+    
 }
 
 struct Loader : View {
@@ -331,7 +227,6 @@ struct Loader : View {
 //        UpdatesView()
 //    }
 //}
-
 struct Post : Identifiable{
   var id : Int
   var name : String
